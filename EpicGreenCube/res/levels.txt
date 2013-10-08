@@ -1,0 +1,20 @@
+200;177;G:480:177
+You're the green good guy. Just go to the Blue goal. Don't touch walls.;Already dead? You suck.
+200;177;G:480:177;C:340:177
+Here's a red circle. It's red, so it's bad. Avoid it.;Trust me, I'm here to help you *sigh*
+200;177;G:480:177;T:360:177
+Here's a magenta triangle. He don't like you.;You should hate and reject him.;Like him as I like you. PS : I hate you
+200;177;G:480:177;C:340:100;C:340:250;T:360:177
+Did you know that red circle had a brother?;Each brother of red circle are laughing about you.;Mangenta triangle too.;Stop it. I'm not laughing.
+190;177;G:470:177
+Our friends are gone. Because you will die without them.;See? I was right.
+170;90;G:530:210;C:350:100;C:350:210
+My name is PotatOS. I don't care about yours.;Red circle is named red circle you know?;Magenta triangle is named magenta triangle. But you knew it.
+170;90;G:530:210;T:510:100
+I'm your only friend. You can trust me.; Magenta triangle doesn't seem happy to see you, no?
+170;140;G:530:140;T:330:100;T:330:200
+There is only one exit from this place. Do you see it?;You shall not pass!
+60;175;G:540:175;C:160:100;C:240:100;C:320:100;C:400:100;C:480:100;C:160:260;C:240:260;C:320:260;C:400:260;C:480:260;C:160:175;C:240:175;C:320:175;C:400:175;C:480:175;T:500:175
+Are you hungry? I have a cake for you. No wait, somebody else eat it.;No, this is not the exit you're looking for.
+100;150;G:615:150;C:160:125;C:220:165;C:280:125;C:340:165;C:400:125;C:460:165;C:520:125;C:580:165;T:50:150
+Run square run!;This is the last level. Yes, it's minimalist. 
