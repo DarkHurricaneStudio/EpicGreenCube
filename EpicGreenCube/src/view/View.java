@@ -13,5 +13,9 @@ public abstract class View {
 	// Constructors
 	
 	// Methods
+	/**
+	 * Return the render of the view
+	 * @return Render of the view
+	 */
 	public abstract BufferedImage render();
 }
