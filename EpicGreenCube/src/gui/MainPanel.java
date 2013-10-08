@@ -12,7 +12,7 @@ public class MainPanel extends JPanel {
 	public MainPanel(){
 		super();
 		// TODO dimension relative to constants
-		this.setPreferredSize(new Dimension(0,0));
+		this.setPreferredSize(new Dimension(Main.WIDTH,Main.HEIGHT));
 	}
 	
 	// Methods

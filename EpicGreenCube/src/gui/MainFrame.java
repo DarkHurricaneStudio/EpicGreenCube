@@ -5,7 +5,6 @@ import javax.swing.JFrame;
 /**
  * Main frame of the game.
  * @author Robrock
- *
  */
 public class MainFrame extends JFrame {
 
