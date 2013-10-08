@@ -10,8 +10,8 @@ import java.awt.image.BufferedImage;
 public abstract class MovingEntity extends Entity {
 
 	//fields
-	private double speedX; // the entity's speed on the X-axis
-	private double speedY; // the entity's speed on the Y-axis
+	protected double speedX; // the entity's speed on the X-axis
+	protected double speedY; // the entity's speed on the Y-axis
 	
 	
 	/**

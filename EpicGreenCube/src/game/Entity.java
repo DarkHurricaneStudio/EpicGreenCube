@@ -1,5 +1,7 @@
 package game;
 
+import gui.Main;
+
 import java.awt.image.BufferedImage;
 
 /**
@@ -17,8 +19,8 @@ public abstract class Entity {
 	
 	// spawn position
 	// we use these fields when the player die. It's better than reloading all the level
-	private final double spawnX;
-	private final double spawnY;
+	private double spawnX;
+	private double spawnY;
 	
 	// Sprite
 	protected BufferedImage sprite;
@@ -33,10 +35,14 @@ public abstract class Entity {
 	 */
 	public Entity( double spawnX, double spawnY, BufferedImage sprite) {
 		// we define the spawn and the first position (that is the spawn)
-		this.spawnX = spawnX;
-		this.spawnY = spawnY;
-		this.posX = spawnX;
-		this.posY = spawnY;
+		if (spawnX >= 0 && spawnX <= Main.WIDTH && spawnY >= 0 && spawnY <= Main.HEIGHT) {
+			this.spawnX = spawnX;
+			this.spawnY = spawnY;
+			this.posX = spawnX;
+			this.posY = spawnY;
+		} else {
+			System.out.println("An Entity was created out of the level ! We skip this creation");
+		}
 		
 		// and we also define the sprite
 		this.sprite = sprite;
