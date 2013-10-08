@@ -30,7 +30,6 @@ public abstract class MovingEntity extends Entity {
 	 */
 	public void setSpeedX(double newSpeed) {
 		this.speedX = newSpeed;
-		this.get
 	}
 	
 	/**
