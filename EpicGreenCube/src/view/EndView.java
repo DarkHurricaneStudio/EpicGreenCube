@@ -19,7 +19,7 @@ public class EndView extends View {
 	/**
 	 * Path of the background
 	 */
-	private final static String path = "../res/end.png";
+	private final static String path = "res/end.png";
 	
 	// Constructors
 	/**

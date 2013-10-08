@@ -23,7 +23,7 @@ public class PauseView extends View {
 	/**
 	 * Path of the background image
 	 */
-	private final static String path = "../res/pause.png";
+	private final static String path = "res/pause.png";
 	
 	// Constructors
 	/**

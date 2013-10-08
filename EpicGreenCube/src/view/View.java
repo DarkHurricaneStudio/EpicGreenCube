@@ -12,7 +12,7 @@ public abstract class View {
 	
 	// Constructors
 	
-	// Methods
+	// Methods	
 	/**
 	 * Return the render of the view
 	 * @return Render of the view

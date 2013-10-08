@@ -3,6 +3,8 @@ package view;
 import gui.Main;
 
 import java.awt.Graphics;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 
@@ -23,7 +25,7 @@ public class BeginView extends View {
 	/**
 	 * Path of the background
 	 */
-	private final static String path = "../res/menu.png";
+	private final static String path = "res/menu.png";
 	
 	// Constructors
 	/**
