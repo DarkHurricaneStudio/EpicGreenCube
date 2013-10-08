@@ -52,6 +52,14 @@ public abstract class Entity {
 	}
 	
 	/**
+	 * define a new BufferedImage as the associated sprite
+	 * @param newSprite the new BufferedImage sprite
+	 */
+	public void setSprite(BufferedImage newSprite) {
+		this.sprite = newSprite;
+	}
+	
+	/**
 	 * ABSTRACT - update the Entity
 	 */
 	public abstract void update();
