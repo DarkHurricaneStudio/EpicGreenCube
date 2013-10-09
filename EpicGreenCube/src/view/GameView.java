@@ -1,5 +1,6 @@
 package view;
 
+import game.Updater;
 import gui.MainPanel;
 
 import java.awt.event.KeyListener;

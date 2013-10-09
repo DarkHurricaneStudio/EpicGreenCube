@@ -1,5 +1,6 @@
 package game;
 
+import java.awt.Point;
 import java.awt.image.BufferedImage;
 
 /**
@@ -22,6 +23,23 @@ public abstract class MovingEntity extends Entity {
 	 */
 	public MovingEntity(double spawnX, double spawnY, BufferedImage sprite) {
 		super(spawnX, spawnY, sprite);
+	}
+	
+	public void turnToPoint(double pointX, double pointY) {
+		
+		// we set the point
+		Point pt = new Point();
+		pt.setLocation(pointX,pointY);
+		
+		// we compute the new speedX and speedY to go to the new goal
+		// this is just the calculus of a cosinus ;)
+		double newSpeedX = (pointX - this.posX) / pt.distanceSq(this.posX, this.posY);
+		// same for the Y-axis speed
+		double newSpeedY = -(pointY - this.posY) / pt.distanceSq(this.posX, this.posY);
+		
+		// and we set these are the real speeds
+		this.speedX = newSpeedX;
+		this.speedY = newSpeedY;
 	}
 	
 	/**

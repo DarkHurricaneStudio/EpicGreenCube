@@ -56,15 +56,8 @@ public class Circle extends MovingEntity {
 	}
 	
 	public void turnToGoal() {
-		// we compute the new speedX and speedY to go to the new goal
-		// this is just the calculus of a cosinus ;)
-		double newSpeedX = (this.waypoints.get(this.goal).getX() - this.posX) / this.waypoints.get(this.goal).distanceSq(this.posX, this.posY);
-		// same for the Y-axis speed
-		double newSpeedY = -(this.waypoints.get(this.goal).getY() - this.posY) / this.waypoints.get(this.goal).distanceSq(this.posX, this.posY);
-		
-		// and we set these are the real speeds
-		this.speedX = newSpeedX;
-		this.speedY = newSpeedY;
+		// we turn it to the next goal
+		turnToPoint(this.waypoints.get(this.goal).getX(),this.waypoints.get(this.goal).getY());
 	}
 
 }
