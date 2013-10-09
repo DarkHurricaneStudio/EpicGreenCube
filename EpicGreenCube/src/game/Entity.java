@@ -67,8 +67,9 @@ public abstract class Entity {
 	
 	/**
 	 * ABSTRACT - update the Entity
+	 * @param u the Updater
 	 */
-	public abstract void update();
+	public abstract void update(Updater u);
 	
 	/**
 	 * get the X-axis position of the Entity

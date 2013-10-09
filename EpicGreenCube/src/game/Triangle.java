@@ -2,6 +2,12 @@ package game;
 
 import java.awt.image.BufferedImage;
 
+
+/**
+ * an ameliorated Entity that can follow the player
+ * @author valentin
+ * @version 1
+ */
 public class Triangle extends MovingEntity {
 
 	/**
@@ -15,15 +21,16 @@ public class Triangle extends MovingEntity {
 
 	/**
 	 * create a triangle in the BufferedImage
-	 * @return the BufferedImage to use for this Circle entity
+	 * @return the BufferedImage to use for this Triangle entity
 	 */
 	private static BufferedImage createSprite() {
 		return null;
 	}
 
 	@Override
-	public void update() {
+	public void update(Updater u) {
 		// TODO : what to do ?
+		this.turnToPlayer(u.getPlayer());
 		
 		// we update position
 		this.posX += this.speedX;
