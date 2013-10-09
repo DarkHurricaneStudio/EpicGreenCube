@@ -21,22 +21,35 @@ public class Circle extends MovingEntity {
 	
 	
 	/**
-	 * the constructor of the Circle, an Entity that can move through a path
+	 * Create a new Circle
 	 * @param spawnX
 	 * @param spawnY
+	 * @param path
 	 */
 	public Circle(double spawnX, double spawnY, Vector<Point> path) {
 		
-		super(spawnX, spawnY, null);
+		super(spawnX, spawnY, createSprite());
 		
-		//We define the real sprite
-		// TODO : set a sprite
-		BufferedImage sprite = null;
-		this.setSprite(sprite);
 		
 		// we define the path
 		this.waypoints = path;
+		// we don't have a path ?
+		if (path == null) {
+			// we create our own path with only one point, the spawn
+			this.waypoints = new Vector<Point>();
+			Point spawn = new Point();
+			spawn.setLocation(spawnX,spawnY);
+			this.waypoints.add(spawn);
+		}
 		this.goal = 0;
+	}
+	
+	/**
+	 * create a circle in the BufferedImage
+	 * @return the BufferedImage to use for this Circle entity
+	 */
+	private static BufferedImage createSprite() {
+		return null;
 	}
 
 	@Override
@@ -55,6 +68,9 @@ public class Circle extends MovingEntity {
 
 	}
 	
+	/**
+	 * change the speed on X and Y axis to move to the next goal
+	 */
 	public void turnToGoal() {
 		// we turn it to the next goal
 		turnToPoint(this.waypoints.get(this.goal).getX(),this.waypoints.get(this.goal).getY());

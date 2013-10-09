@@ -25,6 +25,11 @@ public abstract class MovingEntity extends Entity {
 		super(spawnX, spawnY, sprite);
 	}
 	
+	/**
+	 * change the speed on the X-axis and the Y-axis to move to a specific point
+	 * @param pointX the X position of the point to move to
+	 * @param pointY the Y position of the point to move to
+	 */
 	public void turnToPoint(double pointX, double pointY) {
 		
 		// we set the point
