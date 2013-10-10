@@ -2,6 +2,8 @@ package game;
 
 
 
+import gui.GameSprites;
+
 import java.awt.Point;
 import java.awt.image.BufferedImage;
 import java.util.Vector;
@@ -28,7 +30,7 @@ public class Circle extends MovingEntity {
 	 */
 	public Circle(double spawnX, double spawnY, Vector<Point> path) {
 		
-		super(spawnX, spawnY, createSprite());
+		super(spawnX, spawnY, GameSprites.circleSprite());
 		
 		
 		// we define the path
@@ -43,14 +45,7 @@ public class Circle extends MovingEntity {
 		}
 		this.goal = 0;
 	}
-	
-	/**
-	 * create a circle in the BufferedImage
-	 * @return the BufferedImage to use for this Circle entity
-	 */
-	private static BufferedImage createSprite() {
-		return null;
-	}
+
 
 	@Override
 	public void update(Updater u) {

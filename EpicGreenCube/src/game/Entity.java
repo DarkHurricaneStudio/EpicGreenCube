@@ -58,6 +58,16 @@ public abstract class Entity {
 	}
 	
 	/**
+	 * teleport this entity to a new location
+	 * @param newX the new X position
+	 * @param newY the new Y position
+	 */
+	public void teleport(double newX, double newY) {
+		this.posX = newX;
+		this.posY = newY;
+	}
+	
+	/**
 	 * define a new BufferedImage as the associated sprite
 	 * @param newSprite the new BufferedImage sprite
 	 */

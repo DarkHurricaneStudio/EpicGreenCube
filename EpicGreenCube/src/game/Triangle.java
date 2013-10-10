@@ -1,5 +1,7 @@
 package game;
 
+import gui.GameSprites;
+
 import java.awt.image.BufferedImage;
 
 
@@ -16,16 +18,10 @@ public class Triangle extends MovingEntity {
 	 * @param spawnY the Y-axis position to spawn the entity
 	 */
 	public Triangle(double spawnX, double spawnY) {
-		super(spawnX, spawnY, createSprite());
+		super(spawnX, spawnY, GameSprites.triangleSprite());
 	}
 
-	/**
-	 * create a triangle in the BufferedImage
-	 * @return the BufferedImage to use for this Triangle entity
-	 */
-	private static BufferedImage createSprite() {
-		return null;
-	}
+
 
 	@Override
 	public void update(Updater u) {

@@ -1,5 +1,7 @@
 package game;
 
+import gui.GameSprites;
+
 import java.awt.image.BufferedImage;
 
 /**
@@ -8,19 +10,15 @@ import java.awt.image.BufferedImage;
  * @version 1
  */
 public class Player extends MovingEntity {
+	
+	public final double SPEED = 2.;
 
 	public Player(double spawnX, double spawnY) {
-		super(spawnX, spawnY, createSprite());
+		super(spawnX, spawnY, GameSprites.playerSprite());
 		// TODO Auto-generated constructor stub
 	}
 	
-	/**
-	 * create a square in the BufferedImage
-	 * @return the BufferedImage to use for this Player entity
-	 */
-	private static BufferedImage createSprite() {
-		return null;
-	}
+
 
 	@Override
 	public void update(Updater u) {
