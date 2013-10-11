@@ -26,10 +26,19 @@ public class GameSprites {
 	}
 	
 	/**
-	 * Create a srpite used as the sprite for thge creation of a triangle
+	 * Create a sprite used as the sprite for the creation of a triangle
 	 * @return the triangle's sprite
 	 */
 	public static BufferedImage triangleSprite() {
+		return null;
+	}
+	
+	/**
+	 * Create a sprite used as the sprite for player's fragments at his death
+	 * @param size the size of the sprite/square
+	 * @return
+	 */
+	public static BufferedImage fragmentSprite(int size) {
 		return null;
 	}
 }

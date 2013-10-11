@@ -1,18 +1,26 @@
 package game;
 
+import java.util.ArrayList;
+
 public class Updater {
 
 	//fields
 	private Player player;
 	//private ArrayList<Level> levels; // list of all levels
 	private int deathNumber; // how many times the player died
-	private int actualLevel; // the ID of the level wich the player is in
+	private int actualLevel; // the ID of the level witch the player is in
+	private ArrayList<Fragment> fragments; // list of all fragments actually displayed
 	
 
 	/**
 	 * TODO
 	 */
 	public Updater() {
+		
+		// TODO : some stuff
+		
+		// we create the array of fragments
+		this.fragments = new ArrayList<Fragment>();
 		
 	}
 
