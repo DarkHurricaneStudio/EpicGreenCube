@@ -2,23 +2,31 @@ package game;
 
 import java.util.ArrayList;
 
+/**
+ * The most important class, the Updater. It's the core of the game
+ * @author valentin
+ * @version 1
+ *  TODO : 	- load levels
+ *  		- kill the player (mwahahah)
+ *  		- some others stuff
+ */
 public class Updater {
 
 	//fields
 	private Player player;
 	//private ArrayList<Level> levels; // list of all levels
-	private int deathNumber; // how many times the player died
+	private int deathCounter; // how many times the player died
 	private int actualLevel; // the ID of the level witch the player is in
 	private ArrayList<Fragment> fragments; // list of all fragments actually displayed
 	
 
-	/**
-	 * TODO
-	 */
+
 	public Updater() {
 		
 		// TODO : some stuff
 		
+		// we create a player. It will be useful, isn't it ?
+		//this.player = new Player(0,0);
 		// we create the array of fragments
 		this.fragments = new ArrayList<Fragment>();
 		
@@ -28,7 +36,7 @@ public class Updater {
 	 * add one more death
 	 */
 	public void addDeath() {
-		this.deathNumber++;
+		this.deathCounter++;
 	}
 
 	/**
@@ -44,7 +52,7 @@ public class Updater {
 	 * @return the deathNumber
 	 */
 	public int getDeathNumber() {
-		return deathNumber;
+		return deathCounter;
 	}
 	
 

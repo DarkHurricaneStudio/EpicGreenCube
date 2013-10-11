@@ -61,6 +61,24 @@ public class Player extends MovingEntity {
 		}
 	}
 	
+	/**
+	 * test if the player hits an Entity
+	 * @param e the entioty to test
+	 * @return true if there is collision
+	 */
+	public boolean hitEntity (Entity e) {
+		// We use the approximation that the entity and the player are circles.
+		// for the entity, this is quite right because the circles are circle (hell yeah)
+		// and triangles always face the player, so, there will always be the same distance between it and the player
+		Point playerCenter = new Point();
+		playerCenter.setLocation(this.posX + this.getWidth()/2, this.posY + this.getHeight()/2);
+		if (playerCenter.distanceSq(e.getPosX()+e.getWidth()/2, e.getPosY()+e.getHeight()/2) <= (this.getWidth()/2 + e.getWidth()/2)) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	}
 	
 	/**
 	 * test if the player reached the exit, by a circle approximation
@@ -73,13 +91,7 @@ public class Player extends MovingEntity {
 		// and see if it's in the goal.
 		// but in my opinion, we can just test a distance between the two centers.
 		// this solution doesn't work for the corners but it's more simple
-		Point playerCenter = new Point();
-		playerCenter.setLocation(this.posX + this.getWidth()/2, this.posY + this.getHeight()/2);
-		if (playerCenter.distanceSq(goal.getPosX()+goal.getWidth()/2, goal.getPosY()+goal.getHeight()/2) <= (this.getWidth()/2 + goal.getWidth()/2)) {
-			return true;
-		} else {
-			return false;
-		}
+		return hitEntity(goal);
 	}
 
 }
