@@ -4,7 +4,7 @@ public class Updater {
 
 	//fields
 	private Player player;
-	//private Vector<Level> levels; // list of all levels
+	//private ArrayList<Level> levels; // list of all levels
 	private int deathNumber; // how many times the player died
 	private int actualLevel; // the ID of the level wich the player is in
 	
@@ -45,8 +45,16 @@ public class Updater {
 	 * get the ID of the actual level being played
 	 * @return the actualLevel
 	 */
-	public int getActualLevel() {
+	public int getActualLevelID() {
 		return actualLevel;
 	}
+	
+	/**
+	 * get the ID of the actual level being played
+	 * @return the actualLevel
+	 */
+	//public Level getActualLevel() {
+		//return this.levels.get(this.actualLevel);
+	//}
 
 }
