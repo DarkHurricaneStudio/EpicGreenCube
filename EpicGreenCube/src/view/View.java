@@ -12,7 +12,9 @@ public abstract class View {
 
 	// Fields
 	
+	
 	// Constructors
+	
 	
 	// Methods
 	/**
