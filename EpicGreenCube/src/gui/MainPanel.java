@@ -37,8 +37,6 @@ public class MainPanel extends JPanel {
 		this.setPreferredSize(new Dimension(Main.WIDTH,Main.HEIGHT));
 		
 		this.createViews();
-
-		
 	}
 	
 	// Methods
@@ -47,15 +45,27 @@ public class MainPanel extends JPanel {
 	 */
 	private void createViews(){
 		this.views = new HashMap<>();
-		this.views.put(BeginView.class.getName(),new BeginView());
-		this.views.put(EndView.class.getName(),new EndView());
-		this.views.put(GameView.class.getName(),new GameView());
-		this.views.put(PauseView.class.getName(),new PauseView());
+		this.views.put(BeginView.class.getName(),new BeginView(this));
+		this.views.put(EndView.class.getName(),new EndView(this));
+		this.views.put(GameView.class.getName(),new GameView(this));
+		this.views.put(PauseView.class.getName(),new PauseView(this));
 		
 		this.currentView = this.views.get(BeginView.class.getName());
 	}
 	
+	/*
 	public void paint(Graphics g){
 		g.drawImage(this.currentView.render(), 0, 0, null);
+	}
+	*/
+	
+	/**
+	 * Change the view and active it
+	 * @param s ID of the view. View.class.getName()
+	 */
+	public void setView(String s){
+		this.currentView.setActive(false);
+		this.currentView = this.views.get(s);
+		this.currentView.setActive(true);
 	}
 }

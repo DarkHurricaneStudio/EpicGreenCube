@@ -1,14 +1,13 @@
 package view;
 
 import game.Updater;
-import gui.MainPanel;
 
-import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
 
+import javax.swing.JPanel;
+
 /**
- * Main view, containing the game. It can display it and update it via an
- * updater.
+ * Main view, containing the game. It can display it and update it via an updater.
  * 
  * @author Robrock
  */
@@ -24,13 +23,18 @@ public class GameView extends View {
 	/**
 	 * Create the view and the updater.
 	 */
-	public GameView() {
+	public GameView(JPanel panel) {
+		super(panel);
 		this.updater = new Updater();
 	}
 
 	// Methods
+	public void run() {
+
+	}
 
 	public BufferedImage render() {
 		return null;
 	}
+
 }

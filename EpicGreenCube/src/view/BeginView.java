@@ -1,13 +1,13 @@
 package view;
 
 import gui.Main;
-import gui.MainPanel;
 
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.io.File;
 
 import javax.imageio.ImageIO;
+import javax.swing.JPanel;
 
 /**
  * View at the beginning of the game.
@@ -31,7 +31,8 @@ public class BeginView extends View {
 	/**
 	 * Create the view and load the background. If it can't be load, the game stops.
 	 */
-	public BeginView() {
+	public BeginView(JPanel panel) {
+		super(panel);
 		try {
 			this.background = ImageIO.read(new File(BeginView.path));
 		} catch (Exception e) {
@@ -42,6 +43,10 @@ public class BeginView extends View {
 	}
 
 	// Methods
+	public void run(){
+		
+	}
+	
 	public BufferedImage render() {
 		BufferedImage res = new BufferedImage(Main.WIDTH, Main.HEIGHT, BufferedImage.TYPE_INT_ARGB);
 		Graphics g = res.getGraphics();
