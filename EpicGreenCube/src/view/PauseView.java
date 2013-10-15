@@ -1,13 +1,13 @@
 package view;
 
 import gui.Main;
+import gui.MainPanel;
 
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.io.File;
 
 import javax.imageio.ImageIO;
-import javax.swing.JPanel;
 
 /**
  * View when the game is in pause mode
@@ -31,7 +31,7 @@ public class PauseView extends View {
 	/**
 	 * Create the view and load the background. If it can't be load, the game stops.
 	 */
-	public PauseView(JPanel panel) {
+	public PauseView(MainPanel panel) {
 		super(panel);
 		try {
 			this.background = ImageIO.read(new File(PauseView.path));

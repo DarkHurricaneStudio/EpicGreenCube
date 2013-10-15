@@ -1,13 +1,13 @@
 package view;
 
 import gui.Main;
+import gui.MainPanel;
 
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.io.File;
 
 import javax.imageio.ImageIO;
-import javax.swing.JPanel;
 
 public class EndView extends View {
 
@@ -26,7 +26,7 @@ public class EndView extends View {
 	/**
 	 * Create the view and load the background. If it can't be load, the game stops.
 	 */
-	public EndView(JPanel panel) {
+	public EndView(MainPanel panel) {
 		super(panel);
 		try {
 			this.background = ImageIO.read(new File(EndView.path));

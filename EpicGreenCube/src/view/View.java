@@ -1,9 +1,9 @@
 package view;
 
+import gui.MainPanel;
+
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
-
-import javax.swing.JPanel;
 
 /**
  * Abstract class which represents a view. A view is a displayable part of the game like a menu or the game.
@@ -15,7 +15,7 @@ public abstract class View {
 	/**
 	 * Panel containing the view
 	 */
-	protected JPanel panel;
+	protected MainPanel panel;
 	
 	/**
 	 * True if the panel is currently active
@@ -23,7 +23,7 @@ public abstract class View {
 	protected boolean active = false;
 	
 	// Constructors
-	public View(JPanel panel){
+	public View(MainPanel panel){
 		this.panel = panel;
 	}
 	
@@ -32,12 +32,12 @@ public abstract class View {
 	 * Return the render of the view
 	 * @return Render of the view
 	 */
-	public abstract BufferedImage render();
+	protected abstract BufferedImage render();
 	
 	/**
 	 * Active rendering on the field panel
 	 */
-	private void paintScreen(){
+	protected void paintScreen(){
 		Graphics g = this.panel.getGraphics();
 		if (g != null){
 			g.drawImage(this.render(),0,0,null);
@@ -49,11 +49,8 @@ public abstract class View {
 	
 	/**
 	 * Instructions todo when the view is active. 
-	 * To call paintScreen, use super.run()
 	 */
-	public void run(){
-		this.paintScreen();
-	}
+	public abstract void run();
 	
 	/**
 	 * Set a view active or not

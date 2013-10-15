@@ -1,6 +1,7 @@
 package view;
 
 import gui.Main;
+import gui.MainPanel;
 import handlers.KeyboardInputHandler;
 
 import java.awt.Graphics;
@@ -9,7 +10,6 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 
 import javax.imageio.ImageIO;
-import javax.swing.JPanel;
 
 /**
  * View at the beginning of the game.
@@ -28,12 +28,14 @@ public class BeginView extends View {
 	 * Path of the background
 	 */
 	private final static String path = "res/menu.png";
+	
+	private final static int FPS = 100;
 
 	// Constructors
 	/**
 	 * Create the view and load the background. If it can't be load, the game stops.
 	 */
-	public BeginView(JPanel panel) {
+	public BeginView(MainPanel panel) {
 		super(panel);
 		try {
 			this.background = ImageIO.read(new File(BeginView.path));
@@ -46,17 +48,22 @@ public class BeginView extends View {
 
 	// Methods
 	public void run() {
+		long beforeTime;
+		
 		while (this.active) {
-			super.run();
-
+			beforeTime = System.currentTimeMillis();
+			
+			// Paint the background
+			this.paintScreen();
+			
+			// Wait for the player to push enter
 			if (KeyboardInputHandler.keys[KeyEvent.VK_ENTER]) {
-				System.out.println("BROOOOOOOOOOOOOOOOOOOOOOOOO");
+				this.panel.setView(GameView.class.getName());
 			}
-			try {
-				Thread.sleep(100);
-			} catch (Exception e) {
-			}
-		}	
+			
+			while (System.currentTimeMillis() - beforeTime < 1000/BeginView.FPS){}
+			
+		}
 	}
 
 	public BufferedImage render() {

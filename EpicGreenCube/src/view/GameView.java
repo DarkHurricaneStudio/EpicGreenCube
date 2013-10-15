@@ -1,10 +1,9 @@
 package view;
 
 import game.Updater;
+import gui.MainPanel;
 
 import java.awt.image.BufferedImage;
-
-import javax.swing.JPanel;
 
 /**
  * Main view, containing the game. It can display it and update it via an updater.
@@ -23,14 +22,20 @@ public class GameView extends View {
 	/**
 	 * Create the view and the updater.
 	 */
-	public GameView(JPanel panel) {
+	public GameView(MainPanel panel) {
 		super(panel);
 		this.updater = new Updater();
 	}
 
 	// Methods
 	public void run() {
-
+		while (this.active){
+			System.out.println("Bro");
+			try {
+				Thread.sleep(100);
+			} catch (Exception e) {
+			}
+		}
 	}
 
 	public BufferedImage render() {
