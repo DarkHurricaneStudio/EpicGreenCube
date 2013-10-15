@@ -2,6 +2,8 @@ package gui;
 
 import javax.swing.JFrame;
 
+import view.BeginView;
+
 /**
  * Main frame of the game.
  * @author Robrock
@@ -12,7 +14,7 @@ public class MainFrame extends JFrame {
 	/**
 	 * Main panel of the frame
 	 */
-	private MainPanel mainPanel;
+	public MainPanel mainPanel;
 	
 	// Constructors
 	/**
@@ -35,4 +37,7 @@ public class MainFrame extends JFrame {
 	}
 	
 	// Methods
+	public void go(){
+		this.mainPanel.setView(BeginView.class.getName());
+	}
 }

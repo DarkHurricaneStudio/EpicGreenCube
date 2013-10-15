@@ -1,7 +1,9 @@
 package gui;
 
+import handlers.KeyboardInputHandler;
+
 import java.awt.Dimension;
-import java.awt.Graphics;
+import java.awt.event.KeyListener;
 import java.util.HashMap;
 
 import javax.swing.JPanel;
@@ -29,14 +31,21 @@ public class MainPanel extends JPanel {
 	 */
 	private View currentView;
 	
+	/**
+	 * KeyListener of the application
+	 */
+	private KeyListener keyListener;
+	
 	// Constructors
 	/**
 	 * Initialize the panel and create the views
 	 */
 	public MainPanel(){
 		this.setPreferredSize(new Dimension(Main.WIDTH,Main.HEIGHT));
-		
 		this.createViews();
+		
+		this.keyListener = new KeyboardInputHandler();
+		this.addKeyListener(this.keyListener);
 	}
 	
 	// Methods
@@ -53,12 +62,6 @@ public class MainPanel extends JPanel {
 		this.currentView = this.views.get(BeginView.class.getName());
 	}
 	
-	/*
-	public void paint(Graphics g){
-		g.drawImage(this.currentView.render(), 0, 0, null);
-	}
-	*/
-	
 	/**
 	 * Change the view and active it
 	 * @param s ID of the view. View.class.getName()
@@ -67,5 +70,6 @@ public class MainPanel extends JPanel {
 		this.currentView.setActive(false);
 		this.currentView = this.views.get(s);
 		this.currentView.setActive(true);
+		KeyboardInputHandler.reset();
 	}
 }

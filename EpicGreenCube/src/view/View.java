@@ -37,7 +37,7 @@ public abstract class View {
 	/**
 	 * Active rendering on the field panel
 	 */
-	public void paintScreen(){
+	private void paintScreen(){
 		Graphics g = this.panel.getGraphics();
 		if (g != null){
 			g.drawImage(this.render(),0,0,null);
@@ -48,9 +48,12 @@ public abstract class View {
 	}
 	
 	/**
-	 * Instructions todo when the view is active 
+	 * Instructions todo when the view is active. 
+	 * To call paintScreen, use super.run()
 	 */
-	public abstract void run();
+	public void run(){
+		this.paintScreen();
+	}
 	
 	/**
 	 * Set a view active or not

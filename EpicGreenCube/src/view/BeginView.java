@@ -1,8 +1,10 @@
 package view;
 
 import gui.Main;
+import handlers.KeyboardInputHandler;
 
 import java.awt.Graphics;
+import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
 
@@ -43,10 +45,20 @@ public class BeginView extends View {
 	}
 
 	// Methods
-	public void run(){
-		
+	public void run() {
+		while (this.active) {
+			super.run();
+
+			if (KeyboardInputHandler.keys[KeyEvent.VK_ENTER]) {
+				System.out.println("BROOOOOOOOOOOOOOOOOOOOOOOOO");
+			}
+			try {
+				Thread.sleep(100);
+			} catch (Exception e) {
+			}
+		}	
 	}
-	
+
 	public BufferedImage render() {
 		BufferedImage res = new BufferedImage(Main.WIDTH, Main.HEIGHT, BufferedImage.TYPE_INT_ARGB);
 		Graphics g = res.getGraphics();

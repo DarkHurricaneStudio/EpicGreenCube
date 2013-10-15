@@ -18,5 +18,6 @@ public class Main {
 	// Main Method
 	public static void main(String[] args) {
 		MainFrame mf = new MainFrame();
+		mf.go();
 	}
 }
