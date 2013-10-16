@@ -1,4 +1,4 @@
-package view;
+package views;
 
 import gui.Main;
 import gui.MainPanel;
@@ -9,34 +9,29 @@ import java.io.File;
 
 import javax.imageio.ImageIO;
 
-/**
- * View when the game is in pause mode
- * 
- * @author Robrock
- */
-public class PauseView extends View {
+public class EndView extends View {
 
 	// Fields
 	/**
-	 * Background of the pause menu
+	 * Background of the view
 	 */
 	private BufferedImage background;
 
 	/**
-	 * Path of the background image
+	 * Path of the background
 	 */
-	private final static String path = "res/pause.png";
+	private final static String path = "res/end.png";
 
 	// Constructors
 	/**
 	 * Create the view and load the background. If it can't be load, the game stops.
 	 */
-	public PauseView(MainPanel panel) {
+	public EndView(MainPanel panel) {
 		super(panel);
 		try {
-			this.background = ImageIO.read(new File(PauseView.path));
+			this.background = ImageIO.read(new File(EndView.path));
 		} catch (Exception e) {
-			System.out.println("The file " + PauseView.path + " cannot be open !");
+			System.out.println("The file " + EndView.path + " cannot be open !");
 			e.printStackTrace();
 			throw new RuntimeException();
 		}
@@ -63,5 +58,4 @@ public class PauseView extends View {
 
 		return res;
 	}
-
 }

@@ -1,10 +1,11 @@
 package game;
 
-import gui.GameSprites;
 import handlers.KeyboardInputHandler;
 
 import java.awt.Point;
 import java.awt.event.KeyEvent;
+
+import sprites.GameSprites;
 
 /**
  * The damn player, that can move, die and... die again.
@@ -78,7 +79,7 @@ public class Player extends MovingEntity {
 			return false;
 		}
 	}
-	}
+	
 	
 	/**
 	 * test if the player reached the exit, by a circle approximation

@@ -2,7 +2,7 @@ package gui;
 
 import javax.swing.JFrame;
 
-import view.BeginView;
+import views.BeginView;
 
 /**
  * Main frame of the game.

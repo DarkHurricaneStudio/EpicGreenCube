@@ -1,6 +1,6 @@
 package game;
 
-import gui.GameSprites;
+import sprites.GameSprites;
 import gui.Main;
 
 

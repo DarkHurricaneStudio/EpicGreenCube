@@ -3,7 +3,8 @@ package game;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
-import FourFileLevel.FFL_Loader;
+import fourFileLevel.FFL_Loader;
+
 
 /**
  * The level class, representing... a level

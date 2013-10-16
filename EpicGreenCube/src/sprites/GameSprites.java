@@ -1,4 +1,4 @@
-package gui;
+package sprites;
 
 import java.awt.image.BufferedImage;
 

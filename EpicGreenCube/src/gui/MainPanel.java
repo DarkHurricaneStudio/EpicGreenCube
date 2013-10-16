@@ -8,11 +8,11 @@ import java.util.HashMap;
 
 import javax.swing.JPanel;
 
-import view.BeginView;
-import view.EndView;
-import view.GameView;
-import view.PauseView;
-import view.View;
+import views.BeginView;
+import views.EndView;
+import views.GameView;
+import views.PauseView;
+import views.View;
 
 /**
  * Main panel of the game. It contains all the views.

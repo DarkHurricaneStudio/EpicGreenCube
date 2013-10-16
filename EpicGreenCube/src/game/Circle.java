@@ -2,11 +2,12 @@ package game;
 
 
 
-import gui.GameSprites;
 
 import java.awt.Point;
 import java.awt.image.BufferedImage;
 import java.util.Vector;
+
+import sprites.GameSprites;
 
 /**
  * the Circle class, an enemy moving through a path
