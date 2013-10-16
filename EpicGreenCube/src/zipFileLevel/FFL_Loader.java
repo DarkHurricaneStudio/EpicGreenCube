@@ -1,4 +1,4 @@
-package fourFileLevel;
+package zipFileLevel;
 
 import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
