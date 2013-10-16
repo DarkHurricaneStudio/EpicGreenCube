@@ -28,8 +28,16 @@ public class BeginView extends View {
 	 * Path of the background
 	 */
 	private final static String path = "res/menu.png";
-	
+
+	/**
+	 * Frame Per Seconds
+	 */
 	private final static int FPS = 100;
+
+	/**
+	 * Value use for FPS limit
+	 */
+	private long beforeTime;
 
 	// Constructors
 	/**
@@ -47,23 +55,28 @@ public class BeginView extends View {
 	}
 
 	// Methods
+	public void start() {
+
+	}
+
 	public void run() {
-		long beforeTime;
-		
-		while (this.active) {
-			beforeTime = System.currentTimeMillis();
-			
-			// Paint the background
-			this.paintScreen();
-			
-			// Wait for the player to push enter
-			if (KeyboardInputHandler.keys[KeyEvent.VK_ENTER]) {
-				this.panel.setView(GameView.class.getName());
-			}
-			
-			while (System.currentTimeMillis() - beforeTime < 1000/BeginView.FPS){}
-			
+
+		beforeTime = System.currentTimeMillis();
+
+		// Paint the background
+		this.paintScreen();
+
+		// Wait for the player to push enter
+		if (KeyboardInputHandler.keys[KeyEvent.VK_ENTER]) {
+			this.panel.setView(GameView.class.getName());
 		}
+
+		while (System.currentTimeMillis() - beforeTime < 1000 / BeginView.FPS) {
+		}
+	}
+
+	public void stop() {
+
 	}
 
 	public BufferedImage render() {

@@ -28,14 +28,22 @@ public class GameView extends View {
 	}
 
 	// Methods
+	public void start() {
+
+	}
+
 	public void run() {
-		while (this.active){
+		while (this.active) {
 			System.out.println("Bro");
 			try {
 				Thread.sleep(100);
 			} catch (Exception e) {
 			}
 		}
+	}
+
+	public void stop() {
+
 	}
 
 	public BufferedImage render() {

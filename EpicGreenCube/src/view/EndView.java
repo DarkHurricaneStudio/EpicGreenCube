@@ -38,7 +38,15 @@ public class EndView extends View {
 	}
 
 	// Methods
+	public void start() {
+
+	}
+
 	public void run() {
+
+	}
+
+	public void stop() {
 
 	}
 

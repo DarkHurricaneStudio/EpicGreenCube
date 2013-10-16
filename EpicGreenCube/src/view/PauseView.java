@@ -43,7 +43,15 @@ public class PauseView extends View {
 	}
 
 	// Methods
+	public void start() {
+
+	}
+
 	public void run() {
+
+	}
+
+	public void stop() {
 
 	}
 
