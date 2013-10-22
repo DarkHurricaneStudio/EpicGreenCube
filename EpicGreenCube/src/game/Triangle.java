@@ -1,5 +1,6 @@
 package game;
 
+import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;
 
 import sprites.GameSprites;
@@ -36,6 +37,23 @@ public class Triangle extends MovingEntity {
 
 	public void turnToPlayer(Player p) {
 		turnToPoint(p.getPosX(), p.getPosY());
+	}
+	
+	public AffineTransform rotateSprite() {
+		// we turn the sprite to the good position
+		// we create an affine transformation
+		AffineTransform rotation = new AffineTransform();
+		// we translate it to the center
+		rotation.translate(getWidth()/2, getHeight()/2);
+		// we compute the right angle
+		double angle = Math.atan2(speedX, speedY);
+		// now we rotate it
+		rotation.rotate(angle);
+		// we get back to the good translation
+		rotation.translate(getWidth()/2, -getHeight()/2);
+		
+		return rotation;
+		
 	}
 
 }
