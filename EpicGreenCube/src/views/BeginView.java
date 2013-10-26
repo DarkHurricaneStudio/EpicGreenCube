@@ -60,7 +60,6 @@ public class BeginView extends View {
 	}
 
 	public void run() {
-
 		beforeTime = System.currentTimeMillis();
 
 		// Paint the background

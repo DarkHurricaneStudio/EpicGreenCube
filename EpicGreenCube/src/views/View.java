@@ -57,9 +57,7 @@ public abstract class View {
 	public void setActive(boolean b) {
 		this.active = b;
 
-		if (this.active) {
-			this.run();
-		}
+		this.go();
 	}
 
 	public void go() {
