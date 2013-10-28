@@ -1,5 +1,0 @@
-Spawn|200|177
-Exit|480|177
-Sentence|
-You're the green good guy. Just go to the Blue goal. Don't touch walls.
-Sentence|Already dead? You suck.
