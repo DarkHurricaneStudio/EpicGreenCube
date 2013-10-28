@@ -22,14 +22,17 @@ public class Updater {
 	
 
 
-	public Updater() {
+	public Updater(String zipFile) {
 		
 		// TODO : some stuff
-		
-		// we create a player. It will be useful, isn't it ?
-		//this.player = new Player(0,0);
+		loadLevels(zipFile);
+
 		// we create the array of fragments
 		this.fragments = new ArrayList<Fragment>();
+		
+	}
+	
+	public void loadLevels(String zipFile) {
 		
 	}
 

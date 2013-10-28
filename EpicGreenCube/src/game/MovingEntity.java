@@ -80,7 +80,7 @@ public abstract class MovingEntity extends Entity {
 	public double getSpeedY() {
 		return this.speedY;
 	}
-
+	
 	public AffineTransformOp rotateSprite() {
 		AffineTransform rotation = new AffineTransform();
 		AffineTransformOp rotationOp = new AffineTransformOp(rotation, AffineTransformOp.TYPE_BILINEAR);

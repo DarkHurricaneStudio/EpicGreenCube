@@ -11,7 +11,12 @@ import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.util.HashMap;
 
-
+/**
+ * The rendering of the game
+ * @author valentin
+ * version 1
+ * 
+ */
 public class GameRenderer {
 	
 	//fields
