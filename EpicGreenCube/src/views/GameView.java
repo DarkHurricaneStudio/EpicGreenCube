@@ -58,7 +58,7 @@ public class GameView extends View {
 	 */
 	public GameView(MainPanel panel) {
 		super(panel);
-		this.updater = new Updater("res/levels.zip");
+		this.updater = new Updater();
 		this.renderer = new GameRenderer();
 		
 		this.noDelays = 0;
