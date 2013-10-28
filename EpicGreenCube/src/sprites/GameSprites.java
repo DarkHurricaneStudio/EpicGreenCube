@@ -41,4 +41,12 @@ public class GameSprites {
 	public static BufferedImage fragmentSprite(int size) {
 		return null;
 	}
+	
+	/**
+	 * Create the sprite for the creation of the exit/goal
+	 * @return the exit's sprite
+	 */
+	public static BufferedImage exitSprite() {
+		return null;
+	}
 }

@@ -41,6 +41,10 @@ public class Level {
 		
 	}
 	
+	public BufferedImage getBackground() {
+		return this.background;
+	}
+	
 
 
 }

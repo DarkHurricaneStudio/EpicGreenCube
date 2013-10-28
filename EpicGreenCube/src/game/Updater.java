@@ -18,6 +18,7 @@ public class Updater {
 	private int deathCounter; // how many times the player died
 	private int actualLevel; // the ID of the level witch the player is in
 	private ArrayList<Fragment> fragments; // list of all fragments actually displayed
+	private ArrayList<Level> levels; // the list of levels
 	
 
 
@@ -69,8 +70,8 @@ public class Updater {
 	 * get the ID of the actual level being played
 	 * @return the actualLevel
 	 */
-	//public Level getActualLevel() {
-		//return this.levels.get(this.actualLevel);
-	//}
+	public Level getActualLevel() {
+		return this.levels.get(this.actualLevel);
+	}
 
 }
