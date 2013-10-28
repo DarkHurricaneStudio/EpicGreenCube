@@ -42,7 +42,7 @@ public class Updater {
 		// the zip where are stored the levels
 		String zip = "res/levels.zip";
 		// the number of levels
-		int numberOfLevels = 10;
+		int numberOfLevels = 1;
 		
 		//the list of backgrounds
 		ArrayList<String> images = new ArrayList<String>();
@@ -58,10 +58,9 @@ public class Updater {
 		// Drop the FILES ! (dubstep style)
 		ArrayList<BufferedImage> backs = ZFL_Loader.loadMultipleImages(zip, images);
 		ArrayList<ArrayList<String>> texts = ZFL_Loader.loadMultipleTexts(zip, textnames, "UTF-8");
-		
 		// for each, we create a level object
 		for (int i = 0; i < numberOfLevels;i++) {
-			this.levels.add(i,new Level(backs.get(i),texts.get(i)));
+			this.levels.add(new Level(backs.get(i),texts.get(i)));
 		}
 		
 	}

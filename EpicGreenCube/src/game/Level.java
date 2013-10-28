@@ -29,9 +29,9 @@ public class Level {
 	public Level(BufferedImage image, ArrayList<String> textFile) {
 		// we load the image representing the level
 		this.background = image;
+		this.messages = new ArrayList<String>();
 		// and we do the same for the text file
 		loadTextLevel(textFile);
-		
 	}
 	
 	/**
@@ -43,8 +43,7 @@ public class Level {
 		for (int i = 0; i < textFile.size();i++) {
 			// we check what type of parameter we have
 			//each parameter are separated by ":"
-			String[] parameters = textFile.get(i).split("|");
-			
+			String[] parameters = textFile.get(i).split("\\|");
 			// what type of first parameter is it ?
 			switch (parameters[0]) {
 				case "Spawn":
@@ -73,6 +72,7 @@ public class Level {
 				case "Sentence":
 					// we had the sentence
 					this.messages.add(parameters[1]);
+					break;
 					
 				default:
 					//something doesn't start with the previous String ? There is a problem somewhere !
