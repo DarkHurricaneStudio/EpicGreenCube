@@ -50,6 +50,8 @@ public class GameRenderer {
 		Graphics g = background.getGraphics();
 		*/
 		// display the enemies
+		
+		g.drawImage(u.getActualLevel().getBackground(),0,0,null);
 		if (u.getActualLevel().getEnemies().size() != 0) {
 			
 			for (int i = 0; i < u.getActualLevel().getEnemies().size();i++) {
