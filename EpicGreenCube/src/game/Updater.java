@@ -128,7 +128,8 @@ public class Updater {
 	}
 
 	public void update() {
-		// TODO Auto-generated method stub
+		// We update the player
+		this.player.update(this);
 		
 	}
 

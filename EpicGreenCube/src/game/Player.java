@@ -51,6 +51,8 @@ public class Player extends MovingEntity {
 		} else if (KeyboardInputHandler.keys[KeyEvent.VK_DOWN]) {
 			// nah, go to the bottom
 			this.speedY =Player.SPEED;
+		} else {
+			this.speedY = 0;
 		}
 		
 		// now we check right and left
@@ -60,6 +62,8 @@ public class Player extends MovingEntity {
 		} else if (KeyboardInputHandler.keys[KeyEvent.VK_RIGHT]) {
 			// and now the right
 			this.speedX =Player.SPEED;
+		} else {
+			this.speedX = 0;
 		}
 	}
 	

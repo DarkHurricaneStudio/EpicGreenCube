@@ -48,8 +48,7 @@ public class GameRenderer {
 		// we display all
 		//display the background level
 		g.drawImage(u.getActualLevel().getBackground(),0,0,null);
-		//display the player
-		g.drawImage(this.sprites.get("Player"),(int) u.getPlayer().getPosX(),(int) u.getPlayer().getPosY(),null);
+		
 		// display the enemies
 		if (u.getActualLevel().getEnemies().size() != 0) {
 			
@@ -66,7 +65,10 @@ public class GameRenderer {
 			}
 		}
 		//display the goal
-		g.drawImage(this.sprites.get("Exit"),(int) u.getActualLevel().getExit().getPosX(),(int) u.getActualLevel().getExit().getPosY(),null);
+		g.drawImage(this.sprites.get(Exit.class.getName()),(int) u.getActualLevel().getExit().getPosX(),(int) u.getActualLevel().getExit().getPosY(),null);
+		
+		//display the player
+		g.drawImage(this.sprites.get(Player.class.getName()),(int) u.getPlayer().getPosX(),(int) u.getPlayer().getPosY(),null);
 		
 		// we return the screen
 		return screen;

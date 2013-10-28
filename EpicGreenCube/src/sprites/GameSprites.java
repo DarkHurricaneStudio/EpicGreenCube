@@ -1,5 +1,8 @@
 package sprites;
 
+
+import java.awt.Color;
+import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 
 /**
@@ -10,21 +13,29 @@ import java.awt.image.BufferedImage;
 
 public class GameSprites {
 	
-	public final static int PLAYER_WIDTH = 0;
-	public final static int PLAYER_HEIGHT = 0;
+	public final static int PLAYER_WIDTH = 16;
+	public final static int PLAYER_HEIGHT = 16;
 	public final static int CIRCLE_WIDTH = 0;
 	public final static int CIRCLE_HEIGHT = 0;
 	public final static int TRIANGLE_WIDTH = 0;
 	public final static int TRIANGLE_HEIGHT = 0;
-	public final static int EXIT_WIDTH = 0;
-	public final static int EXIT_HEIGHT = 0;
+	public final static int EXIT_WIDTH = 16;
+	public final static int EXIT_HEIGHT = 16;
 
 	/**
 	 * Create the sprite for the creation of the player
 	 * @return the player's sprite
 	 */
 	public static BufferedImage playerSprite() {
-		return null;
+		BufferedImage res = new BufferedImage(GameSprites.PLAYER_WIDTH, GameSprites.PLAYER_HEIGHT, BufferedImage.TYPE_INT_ARGB);
+		Graphics g = res.getGraphics();
+
+		g.setColor(Color.green);
+		g.fillRect(0, 0, GameSprites.PLAYER_WIDTH , GameSprites.PLAYER_HEIGHT );
+		g.setColor(Color.black);
+		g.drawRect(0, 0, GameSprites.PLAYER_WIDTH - 1, GameSprites.PLAYER_HEIGHT - 1);
+
+		return res;
 	}
 	
 	/**
@@ -57,6 +68,14 @@ public class GameSprites {
 	 * @return the exit's sprite
 	 */
 	public static BufferedImage exitSprite() {
-		return null;
+		BufferedImage res = new BufferedImage(GameSprites.EXIT_WIDTH, GameSprites.EXIT_HEIGHT, BufferedImage.TYPE_INT_ARGB);
+		Graphics g = res.getGraphics();
+
+		g.setColor(Color.cyan);
+		g.fillRect(0, 0, GameSprites.EXIT_HEIGHT, GameSprites.EXIT_HEIGHT);
+		g.setColor(Color.black);
+		g.drawRect(0, 0, GameSprites.EXIT_WIDTH -1, GameSprites.EXIT_HEIGHT -1);
+
+		return res;
 	}
 }
