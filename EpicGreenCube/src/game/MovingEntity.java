@@ -1,6 +1,8 @@
 package game;
 
 import java.awt.Point;
+import java.awt.geom.AffineTransform;
+import java.awt.image.AffineTransformOp;
 import java.awt.image.BufferedImage;
 
 /**
@@ -77,6 +79,12 @@ public abstract class MovingEntity extends Entity {
 	 */
 	public double getSpeedY() {
 		return this.speedY;
+	}
+
+	public AffineTransformOp rotateSprite() {
+		AffineTransform rotation = new AffineTransform();
+		AffineTransformOp rotationOp = new AffineTransformOp(rotation, AffineTransformOp.TYPE_BILINEAR);
+		return rotationOp;
 	}
 
 

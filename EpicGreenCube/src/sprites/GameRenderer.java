@@ -31,6 +31,11 @@ public class GameRenderer {
 	}
 	
 	public BufferedImage render(Updater u) {
+		// TODO :
+		// level number
+		// death number
+		// funny sentence
+		
 		
 		BufferedImage screen = new BufferedImage(Main.WIDTH,Main.HEIGHT,BufferedImage.TYPE_INT_RGB);
 		Graphics g = screen.getGraphics();
@@ -42,9 +47,20 @@ public class GameRenderer {
 		g.drawImage(this.sprites.get("Player"),(int) u.getPlayer().getPosX(),(int) u.getPlayer().getPosY(),null);
 		// display the enemies
 		for (int i = 0; i < u.getActualLevel().getEnemies().size();i++) {
-			g.drawImage(this.sprites.get(u.getActualLevel().getEnemies().get(i).getClass().getName()),(int) u.getActualLevel().getEnemies().get(i).getPosX(), (int) u.getActualLevel().getEnemies().get(i).getPosY(), null);
+			
+			// we create a transitional sprite
+			BufferedImage sprite = this.sprites.get(u.getActualLevel().getEnemies().get(i).getClass().getName());
+			
+			// if the enemy is a triangle, we have to rotate it
+			if (u.getActualLevel().getEnemies().get(i).getClass().getName() == Triangle.class.getName())
+				u.getActualLevel().getEnemies().get(i).rotateSprite().filter(sprite,null);
+				
+			g.drawImage(sprite,(int) u.getActualLevel().getEnemies().get(i).getPosX(), (int) u.getActualLevel().getEnemies().get(i).getPosY(), null);
 		}
+		//display the goal
+		g.drawImage(this.sprites.get("Exit"),(int) u.getActualLevel().getExit().getPosX(),(int) u.getActualLevel().getExit().getPosY(),null);
 		
+		// we return the screen
 		return screen;
 		
 	}

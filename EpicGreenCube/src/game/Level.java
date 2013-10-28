@@ -15,6 +15,7 @@ import zipFileLevel.FFL_Loader;
 public class Level {
 	
 	//fields
+	private Exit exit;
 	private ArrayList<MovingEntity> enemies; // all enemies : circles and triangles
 	private BufferedImage background; // the background of the level
 	private ArrayList<String> messages; // some messages to display ?
@@ -55,6 +56,10 @@ public class Level {
 	 */
 	public ArrayList<MovingEntity> getEnemies() {
 		return this.enemies;
+	}
+	
+	public Exit getExit() {
+		return this.exit;
 	}
 	
 
