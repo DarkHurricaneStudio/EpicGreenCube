@@ -30,6 +30,7 @@ public class Level {
 		// we load the image representing the level
 		this.background = image;
 		this.messages = new ArrayList<String>();
+		this.enemies = new ArrayList<MovingEntity>();
 		// and we do the same for the text file
 		loadTextLevel(textFile);
 	}
