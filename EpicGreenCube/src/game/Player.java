@@ -74,17 +74,15 @@ public class Player extends MovingEntity {
 	
 	/**
 	 * test if the player hits an Entity
-	 * @param e the entioty to test
+	 * @param e the entity to test
 	 * @return true if there is collision
 	 */
 	public boolean hitEntity (Entity e) {
 		// We use the approximation that the entity and the player are circles.
 		// for the entity, this is quite right because the circles are circle (hell yeah)
 		// and triangles always face the player, so, there will always be the same distance between it and the player
-		Point playerCenter = new Point();
-		playerCenter.setLocation(this.posX + this.getWidth()/2, this.posY + this.getHeight()/2);
-		//System.out.println(Math.sqrt((this.posX+this.getWidth()/2+e.getPosX()-e.getWidth()/2)*(this.posX+this.getWidth()/2-e.getPosX()+e.getWidth()/2) + (this)));
-		if (playerCenter.distanceSq(e.getPosX()+e.getWidth()/2, e.getPosY()+e.getHeight()/2) <= (this.getWidth()/2 + e.getWidth()/2)) {
+
+		if ((Math.sqrt((e.getPosX()+e.getWidth()/2-this.posX-this.getWidth()/2)*(e.getPosX()+e.getWidth()/2-this.posX-this.getWidth()/2)) + (e.getPosY()+e.getHeight()/2-this.posY-this.getHeight()/2)*(e.getPosY()+e.getHeight()/2-this.posY-this.getHeight()/2)) <= (this.getWidth()/2 + e.getWidth()/2)) {
 			return true;
 		} else {
 			return false;
