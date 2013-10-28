@@ -42,7 +42,7 @@ public class Updater {
 		// the zip where are stored the levels
 		String zip = "res/levels.zip";
 		// the number of levels
-		int numberOfLevels = 5;
+		int numberOfLevels = 10;
 		
 		//the list of backgrounds
 		ArrayList<String> images = new ArrayList<String>();
@@ -61,7 +61,7 @@ public class Updater {
 		
 		// for each, we create a level object
 		for (int i = 0; i < numberOfLevels;i++) {
-			this.levels.add(new Level(backs.get(i),texts.get(i)));
+			this.levels.add(i,new Level(backs.get(i),texts.get(i)));
 		}
 		
 	}
