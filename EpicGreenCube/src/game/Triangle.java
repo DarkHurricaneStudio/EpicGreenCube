@@ -2,7 +2,7 @@ package game;
 
 import java.awt.geom.AffineTransform;
 import java.awt.image.AffineTransformOp;
-import java.awt.image.BufferedImage;
+
 
 import sprites.GameSprites;
 
@@ -24,6 +24,8 @@ public class Triangle extends MovingEntity {
 	 */
 	public Triangle(double spawnX, double spawnY) {
 		super(spawnX, spawnY);
+		this.width = GameSprites.TRIANGLE_WIDTH;
+		this.height = GameSprites.TRIANGLE_HEIGHT;
 	}
 
 	@Override

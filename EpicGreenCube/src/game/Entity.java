@@ -2,8 +2,6 @@ package game;
 
 import gui.Main;
 
-import java.awt.image.BufferedImage;
-
 /**
  * the most basic part of any entity of the game
  * @author valentin
@@ -21,6 +19,9 @@ public abstract class Entity {
 	// we use these fields when the player die. It's better than reloading all the level
 	private double spawnX;
 	private double spawnY;
+	
+	protected int width;
+	protected int height;
 	
 
 	
@@ -41,8 +42,7 @@ public abstract class Entity {
 			System.out.println("An Entity was created out of the level ! We skip this creation");
 		}
 		
-		// and we also define the sprite
-		this.sprite = sprite;
+
 	}
 	
 	
@@ -65,18 +65,18 @@ public abstract class Entity {
 	}
 	
 	/**
-	 * define a new BufferedImage as the associated sprite
-	 * @param newSprite the new BufferedImage sprite
-	 */
-	public void setSprite(BufferedImage newSprite) {
-		this.sprite = newSprite;
-	}
-	
-	/**
 	 * ABSTRACT - update the Entity
 	 * @param u the Updater
 	 */
 	public abstract void update(Updater u);
+	
+	public void setPosX(double x) {
+		this.posX = x;
+	}
+	
+	public void setPosY(double y) {
+		this.posY = y;
+	}
 	
 	/**
 	 * get the X-axis position of the Entity
@@ -94,29 +94,11 @@ public abstract class Entity {
 		return this.posY;
 	}
 
-	/**
-	 * get the sprite of the Entity
-	 * @return the associated sprite (a BufferedImage)
-	 */
-	public BufferedImage getSprite() {
-		return this.sprite;
-	}
-	
-	/**
-	 * get the height of the sprite associated to this Entity
-	 * @return the height of the sprite associated
-	 */
-	public int getHeight() {
-		return this.sprite.getHeight();
-	}
-	
-	/**
-	 * get the width of the sprite associated to this Entity
-	 * @return the width of the sprite associated
-	 */
 	public int getWidth() {
-		return this.sprite.getWidth();
+		return this.width;
 	}
 	
-	
+	public int getHeight() {
+		return this.height;
+	}
 }

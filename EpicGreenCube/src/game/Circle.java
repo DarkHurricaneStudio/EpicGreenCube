@@ -6,6 +6,8 @@ package game;
 import java.awt.Point;
 import java.util.ArrayList;
 
+import sprites.GameSprites;
+
 
 /**
  * the Circle class, an enemy moving through a path
@@ -31,6 +33,9 @@ public class Circle extends MovingEntity {
 		
 		super(spawnX, spawnY);
 		
+		//we define the size
+		this.width = GameSprites.CIRCLE_WIDTH;
+		this.height = GameSprites.CIRCLE_HEIGHT;
 		
 		// we define the path
 		this.waypoints = path;

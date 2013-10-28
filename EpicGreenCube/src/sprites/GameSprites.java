@@ -7,7 +7,17 @@ import java.awt.image.BufferedImage;
  * @author valentin
  * @version 1
  */
+
 public class GameSprites {
+	
+	public final static int PLAYER_WIDTH = 0;
+	public final static int PLAYER_HEIGHT = 0;
+	public final static int CIRCLE_WIDTH = 0;
+	public final static int CIRCLE_HEIGHT = 0;
+	public final static int TRIANGLE_WIDTH = 0;
+	public final static int TRIANGLE_HEIGHT = 0;
+	public final static int EXIT_WIDTH = 0;
+	public final static int EXIT_HEIGHT = 0;
 
 	/**
 	 * Create the sprite for the creation of the player

@@ -1,6 +1,6 @@
 package game;
 
-import sprites.GameSprites;
+
 import gui.Main;
 
 
@@ -12,7 +12,7 @@ import gui.Main;
 public class Fragment extends MovingEntity {
 
 	public Fragment(double spawnX, double spawnY, int size) {
-		super(spawnX, spawnY, GameSprites.fragmentSprite(size));
+		super(spawnX, spawnY);
 		// we create random speed
 		this.speedX = 2 * Player.SPEED * (Math.random()) - Player.SPEED ;
 		this.speedY = 2 * Player.SPEED * (Math.random()) - Player.SPEED ;

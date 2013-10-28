@@ -27,7 +27,10 @@ public class Updater {
 
 	public Updater() {
 		
-		// TODO : some stuff
+		// we laod the levels
+		loadLevels();
+		// we define the first level
+		changeLevel(0);
 
 		// we create the array of fragments
 		this.fragments = new ArrayList<Fragment>();
@@ -61,6 +64,12 @@ public class Updater {
 			this.levels.add(new Level(backs.get(i),texts.get(i)));
 		}
 		
+	}
+	
+	public void changeLevel(int newLvl) {
+		this.actualLevel = newLvl;
+		this.player.setPosX(this.levels.get(this.actualLevel).getSpawnX());
+		this.player.setPosY(this.levels.get(this.actualLevel).getSpawnY());
 	}
 
 	/**
@@ -110,6 +119,11 @@ public class Updater {
 	 */
 	public Player getPlayer() {
 		return this.player;
+	}
+
+	public void update() {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

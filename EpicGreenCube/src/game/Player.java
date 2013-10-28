@@ -23,7 +23,8 @@ public class Player extends MovingEntity {
 
 	public Player(double spawnX, double spawnY) {
 		super(spawnX, spawnY);
-		// TODO Auto-generated constructor stub
+		this.width = GameSprites.PLAYER_WIDTH;
+		this.height = GameSprites.PLAYER_HEIGHT;
 	}
 	
 

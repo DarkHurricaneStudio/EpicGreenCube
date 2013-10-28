@@ -1,12 +1,15 @@
 package game;
 
-import java.awt.image.BufferedImage;
+
+
+import sprites.GameSprites;
 
 public class Exit extends Entity {
 
 	public Exit(double spawnX, double spawnY) {
 		super(spawnX, spawnY);
-		// TODO Auto-generated constructor stub
+		this.width = GameSprites.EXIT_WIDTH;
+		this.height = GameSprites.EXIT_HEIGHT;
 	}
 
 	@Override

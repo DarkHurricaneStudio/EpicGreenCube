@@ -1,9 +1,7 @@
 package game;
 
 import java.awt.Point;
-import java.awt.geom.AffineTransform;
 import java.awt.image.AffineTransformOp;
-import java.awt.image.BufferedImage;
 
 /**
  * an ameliorated Entity that can move
@@ -82,9 +80,7 @@ public abstract class MovingEntity extends Entity {
 	}
 	
 	public AffineTransformOp rotateSprite() {
-		AffineTransform rotation = new AffineTransform();
-		AffineTransformOp rotationOp = new AffineTransformOp(rotation, AffineTransformOp.TYPE_BILINEAR);
-		return rotationOp;
+		return null;
 	}
 
 

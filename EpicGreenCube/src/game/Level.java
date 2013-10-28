@@ -4,8 +4,6 @@ import java.awt.Point;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
-import zipFileLevel.ZFL_Loader;
-
 
 
 /**
@@ -105,6 +103,14 @@ public class Level {
 	
 	public Exit getExit() {
 		return this.exit;
+	}
+
+	public double getSpawnX() {
+		return this.spawnX;
+	}
+	
+	public double getSpawnY() {
+		return this.spawnY;
 	}
 	
 
