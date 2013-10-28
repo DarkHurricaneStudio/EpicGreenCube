@@ -38,17 +38,17 @@ public class GameView extends View {
 	private int period = 1000000000 / GameView.FPS;
 	
 	/**
-	 * 
+	 * Number of frames too long following the period
 	 */
 	private int noDelays;
 	
 	/**
-	 * 
+	 * FPS goal
 	 */
 	private final static int FPS = 60;
 	
 	/**
-	 * 
+	 * Number of errors before yielding
 	 */
 	private final static int NO_DELAYS_PER_YIELD = 10;
 	
