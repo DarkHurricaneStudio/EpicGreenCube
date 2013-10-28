@@ -42,7 +42,7 @@ public class GameRenderer {
 		g.drawImage(this.sprites.get("Player"),(int) u.getPlayer().getPosX(),(int) u.getPlayer().getPosY(),null);
 		// display the enemies
 		for (int i = 0; i < u.getActualLevel().getEnemies().size();i++) {
-			g.drawImage(this.sprites.get(u.getActualLevel().getEnemies().get(i).class.getName()),(int) u.getActualLevel().getEnemies().get(i).getPosX(), (int) u.getActualLevel().getEnemies().get(i).getPosY(), null);
+			g.drawImage(this.sprites.get(u.getActualLevel().getEnemies().get(i).getClass().getName()),(int) u.getActualLevel().getEnemies().get(i).getPosX(), (int) u.getActualLevel().getEnemies().get(i).getPosY(), null);
 		}
 		
 		return screen;
