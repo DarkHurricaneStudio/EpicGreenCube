@@ -73,5 +73,13 @@ public class Updater {
 	public Level getActualLevel() {
 		return this.levels.get(this.actualLevel);
 	}
+	
+	/**
+	 * get the player object
+	 * @return the player
+	 */
+	public Player getPlayer() {
+		return this.player;
+	}
 
 }

@@ -5,7 +5,9 @@ import game.Exit;
 import game.Player;
 import game.Triangle;
 import game.Updater;
+import gui.Main;
 
+import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.util.HashMap;
 
@@ -28,13 +30,17 @@ public class GameRenderer {
 		
 	}
 	
-	public void render(Updater u) {
+	public BufferedImage render(Updater u) {
+		
+		BufferedImage screen = new BufferedImage(Main.WIDTH,Main.HEIGHT,BufferedImage.TYPE_INT_RGB);
+		Graphics g = screen.getGraphics();
+		
 		// we display all
-		//TODO
 		//display the background level
-		//TODO.drawImage(u.getActualLevel().getBackground(),0,0);
+		g.drawImage(u.getActualLevel().getBackground(),0,0,null);
 		//display the player
-		//TODO.drawImage(this.sprites.get("Player",u.getPlayer().getPosX(),u.getPlayer.getPosY());
+		g.drawImage(this.sprites.get("Player",u.getPlayer().getPosX(),u.getPlayer().getPosY(),null);
+		
 	}
 
 }
