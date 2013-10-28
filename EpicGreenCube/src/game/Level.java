@@ -41,8 +41,20 @@ public class Level {
 		
 	}
 	
+	/**
+	 * get the background
+	 * @return the background as a bufferedImage
+	 */
 	public BufferedImage getBackground() {
 		return this.background;
+	}
+	
+	/**
+	 * get the list of all enemeies
+	 * @return an ArrayList of enemies
+	 */
+	public ArrayList<MovingEntity> getEnemies() {
+		return this.enemies;
 	}
 	
 
