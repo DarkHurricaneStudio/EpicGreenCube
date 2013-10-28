@@ -28,8 +28,14 @@ public class Updater {
 	public Updater() {
 		this.levels = new ArrayList<>();
 		
-		// we laod the levels
+		// we create the levels
+		this.levels = new ArrayList<Level>();
+		// we create the player
+		this.player = new Player(0,0);
+		
+		// we load all the levels
 		loadLevels();
+		
 		// we define the first level
 		changeLevel(0);
 
