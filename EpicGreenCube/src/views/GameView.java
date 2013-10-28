@@ -4,8 +4,8 @@ import game.Updater;
 import gui.MainPanel;
 import handlers.KeyboardInputHandler;
 
+import java.awt.Graphics;
 import java.awt.event.KeyEvent;
-import java.awt.image.BufferedImage;
 
 import sprites.GameRenderer;
 
@@ -116,8 +116,8 @@ public class GameView extends View {
 
 	}
 
-	public BufferedImage render() {
-		return this.renderer.render(this.updater);
+	public void render(Graphics g) {
+		this.renderer.render(g,this.updater);
 	}
 
 }

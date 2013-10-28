@@ -50,12 +50,7 @@ public class EndView extends View {
 
 	}
 
-	public BufferedImage render() {
-		BufferedImage res = new BufferedImage(Main.WIDTH, Main.HEIGHT, BufferedImage.TYPE_INT_ARGB);
-		Graphics g = res.getGraphics();
-
+	public void render(Graphics g) {
 		g.drawImage(this.background, 0, 0, null);
-
-		return res;
 	}
 }

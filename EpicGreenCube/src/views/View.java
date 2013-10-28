@@ -34,7 +34,7 @@ public abstract class View {
 	 * 
 	 * @return Render of the view
 	 */
-	protected abstract BufferedImage render();
+	protected abstract void render(Graphics g);
 
 	/**
 	 * Active rendering on the field panel
@@ -42,7 +42,7 @@ public abstract class View {
 	protected void paintScreen() {
 		Graphics g = this.panel.getGraphics();
 		if (g != null) {
-			g.drawImage(this.render(), 0, 0, null);
+			this.render(g);
 		} else {
 			System.out.println("Graphics error");
 		}

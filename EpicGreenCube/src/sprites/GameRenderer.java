@@ -35,20 +35,20 @@ public class GameRenderer {
 		
 	}
 	
-	public BufferedImage render(Updater u) {
+	public void render(Graphics g,Updater u) {
 		// TODO :
 		// level number
 		// death number
 		// funny sentence
 		
-		
+		/*
 		BufferedImage screen = new BufferedImage(Main.WIDTH,Main.HEIGHT,BufferedImage.TYPE_INT_RGB);
 		
 		// we display all
 		//display the background level
 		BufferedImage background = u.getActualLevel().getBackground();
 		Graphics g = background.getGraphics();
-		
+		*/
 		// display the enemies
 		if (u.getActualLevel().getEnemies().size() != 0) {
 			
@@ -70,9 +70,10 @@ public class GameRenderer {
 		//display the player
 		g.drawImage(this.sprites.get(Player.class.getName()),(int) u.getPlayer().getPosX(),(int) u.getPlayer().getPosY(),null);
 		
+		/*
 		// we return the screen
 		return background;
-		
+		*/
 	}
 	
 
