@@ -39,7 +39,9 @@ public class GameRenderer {
 		//display the background level
 		g.drawImage(u.getActualLevel().getBackground(),0,0,null);
 		//display the player
-		g.drawImage(this.sprites.get("Player",u.getPlayer().getPosX(),u.getPlayer().getPosY(),null);
+		g.drawImage(this.sprites.get("Player"),(int) u.getPlayer().getPosX(),(int) u.getPlayer().getPosY(),null);
+		
+		return screen;
 		
 	}
 
