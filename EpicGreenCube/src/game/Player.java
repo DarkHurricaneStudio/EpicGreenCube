@@ -22,7 +22,7 @@ public class Player extends MovingEntity {
 	
 
 	public Player(double spawnX, double spawnY) {
-		super(spawnX, spawnY, GameSprites.playerSprite());
+		super(spawnX, spawnY);
 		// TODO Auto-generated constructor stub
 	}
 	

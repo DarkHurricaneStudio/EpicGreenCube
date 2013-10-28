@@ -23,8 +23,8 @@ public abstract class MovingEntity extends Entity {
 	 * @param spawnY the position in the Y-axis for the entity (used as spawn)
 	 * @param sprite the BufferedImage used to display this Entity
 	 */
-	public MovingEntity(double spawnX, double spawnY, BufferedImage sprite) {
-		super(spawnX, spawnY, sprite);
+	public MovingEntity(double spawnX, double spawnY) {
+		super(spawnX, spawnY);
 	}
 	
 	/**

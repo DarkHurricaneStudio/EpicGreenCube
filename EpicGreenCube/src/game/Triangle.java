@@ -23,7 +23,7 @@ public class Triangle extends MovingEntity {
 	 *            the Y-axis position to spawn the entity
 	 */
 	public Triangle(double spawnX, double spawnY) {
-		super(spawnX, spawnY, GameSprites.triangleSprite());
+		super(spawnX, spawnY);
 	}
 
 	@Override

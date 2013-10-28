@@ -4,8 +4,8 @@ import java.awt.image.BufferedImage;
 
 public class Exit extends Entity {
 
-	public Exit(double spawnX, double spawnY, BufferedImage sprite) {
-		super(spawnX, spawnY, sprite);
+	public Exit(double spawnX, double spawnY) {
+		super(spawnX, spawnY);
 		// TODO Auto-generated constructor stub
 	}
 

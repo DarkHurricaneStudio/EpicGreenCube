@@ -22,18 +22,15 @@ public abstract class Entity {
 	private double spawnX;
 	private double spawnY;
 	
-	// Sprite
-	protected BufferedImage sprite;
+
 	
 	/**
 	 * The constructor for the abstract class Entity
 	 * @param spawnX the position in the X-axis for the entity (used as spawn)
 	 * @param spawnY the position in the Y-axis for the entity (used as spawn)
-	 * @param sprite the BufferedImage used to display this Entity
-	 * 
-	 * TODO : check if the position are in the screen/level ?
+	 *
 	 */
-	public Entity( double spawnX, double spawnY, BufferedImage sprite) {
+	public Entity( double spawnX, double spawnY) {
 		// we define the spawn and the first position (that is the spawn)
 		if (spawnX >= 0 && spawnX <= Main.WIDTH && spawnY >= 0 && spawnY <= Main.HEIGHT) {
 			this.spawnX = spawnX;

@@ -4,10 +4,8 @@ package game;
 
 
 import java.awt.Point;
-import java.awt.image.BufferedImage;
-import java.util.Vector;
+import java.util.ArrayList;
 
-import sprites.GameSprites;
 
 /**
  * the Circle class, an enemy moving through a path
@@ -19,7 +17,7 @@ public class Circle extends MovingEntity {
 	//fields
 	
 	// the path
-	private Vector<Point> waypoints; // a list of points
+	private ArrayList<Point> waypoints; // a list of points
 	private int goal; // the goal is the position of the next point in the path
 	
 	
@@ -29,9 +27,9 @@ public class Circle extends MovingEntity {
 	 * @param spawnY
 	 * @param path
 	 */
-	public Circle(double spawnX, double spawnY, Vector<Point> path) {
+	public Circle(double spawnX, double spawnY, ArrayList<Point> path) {
 		
-		super(spawnX, spawnY, GameSprites.circleSprite());
+		super(spawnX, spawnY);
 		
 		
 		// we define the path
@@ -39,7 +37,7 @@ public class Circle extends MovingEntity {
 		// we don't have a path ?
 		if (path == null) {
 			// we create our own path with only one point, the spawn
-			this.waypoints = new Vector<Point>();
+			this.waypoints = new ArrayList<Point>();
 			Point spawn = new Point();
 			spawn.setLocation(spawnX,spawnY);
 			this.waypoints.add(spawn);
