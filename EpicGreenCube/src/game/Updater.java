@@ -26,6 +26,7 @@ public class Updater {
 
 
 	public Updater() {
+		this.levels = new ArrayList<>();
 		
 		// we laod the levels
 		loadLevels();
