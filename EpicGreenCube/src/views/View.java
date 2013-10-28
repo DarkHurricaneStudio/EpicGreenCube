@@ -4,6 +4,7 @@ import gui.Main;
 import gui.MainPanel;
 
 import java.awt.Graphics;
+import java.awt.Toolkit;
 import java.awt.image.BufferedImage;
 
 /**
@@ -50,6 +51,7 @@ public abstract class View {
 		Graphics g = this.panel.getGraphics();
 		if (g != null) {
 			g.drawImage(this.render, 0, 0, null);
+			Toolkit.getDefaultToolkit().sync();
 		} else {
 			System.out.println("Graphics error");
 		}
