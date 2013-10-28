@@ -5,6 +5,8 @@ import gui.MainPanel;
 
 import java.awt.image.BufferedImage;
 
+import sprites.GameRenderer;
+
 /**
  * Main view, containing the game. It can display it and update it via an updater.
  * 
@@ -18,6 +20,10 @@ public class GameView extends View {
 	 */
 	private Updater updater;
 
+	/**
+	 * Renderer of the games
+	 */
+	private GameRenderer renderer;
 	
 	/**
 	 * 
@@ -51,6 +57,8 @@ public class GameView extends View {
 	public GameView(MainPanel panel) {
 		super(panel);
 		this.updater = new Updater();
+		this.renderer = new GameRenderer();
+		
 		this.noDelays = 0;
 	}
 
@@ -88,6 +96,7 @@ public class GameView extends View {
 			
 			overSleepTime = 0L;
 
+			// noDelays is incremented then compared 
 			if (++noDelays >= GameView.NO_DELAYS_PER_YIELD) {
 				Thread.yield(); // Give another thread 	a chance to run
 				noDelays = 0;
@@ -101,7 +110,7 @@ public class GameView extends View {
 	}
 
 	public BufferedImage render() {
-		return null;
+		return this.renderer.render(this.updater);
 	}
 
 }
