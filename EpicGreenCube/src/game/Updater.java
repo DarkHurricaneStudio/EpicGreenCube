@@ -1,6 +1,9 @@
 package game;
 
+import java.awt.image.BufferedImage;
 import java.util.ArrayList;
+
+import zipFileLevel.ZFL_Loader;
 
 /**
  * The most important class, the Updater. It's the core of the game
@@ -31,8 +34,32 @@ public class Updater {
 		
 	}
 	
-	public void loadLevels(int number) {
+	public void loadLevels() {
 		
+		// the zip where are stored the levels
+		String zip = "res/levels.zip";
+		// the number of levels
+		int numberOfLevels = 5;
+		
+		//the list of backgrounds
+		ArrayList<String> images = new ArrayList<String>();
+		//the list of file texts
+		ArrayList<String> textnames = new ArrayList<String>();
+		
+		// we write the name of the wanted files
+		for (int i = 0; i < numberOfLevels; i++) {
+			images.add("back"+i+".png");
+			textnames.add("lvl"+i+".txt");
+		}
+		
+		// Drop the FILES ! (dubstep style)
+		ArrayList<BufferedImage> backs = ZFL_Loader.loadMultipleImages(zip, images);
+		ArrayList<ArrayList<String>> texts = ZFL_Loader.loadMultipleTexts(zip, textnames, "UTF-8");
+		
+		// for each, we create a level object
+		for (int i = 0; i < numberOfLevels;i++) {
+			this.levels.add(new Level(backs.get(i),texts.get(i)));
+		}
 		
 	}
 

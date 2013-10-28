@@ -17,7 +17,7 @@ import javax.imageio.ImageIO;
  * @author Avignak
  * @version 2 : added multiple images and texts loading
  */
-public class FFL_Loader {
+public class ZFL_Loader {
 	
 	//fields
 	/**
@@ -50,7 +50,7 @@ public class FFL_Loader {
     	InputStream inputStream = zipFile.getInputStream(zipFileEntry);
     	
     	// The file will be read at a byte[]
-    	byte[] buffer = new byte[FFL_Loader.BUFFER];
+    	byte[] buffer = new byte[ZFL_Loader.BUFFER];
     	
     	// we load all characters
 			for(int n; (n = inputStream.read(buffer)) != -1; )  
@@ -105,7 +105,7 @@ public class FFL_Loader {
 					InputStream inputStream = zipFile.getInputStream(zipFileEntry);
 
 					// The file will be read at a byte[]
-					byte[] buffer = new byte[FFL_Loader.BUFFER];
+					byte[] buffer = new byte[ZFL_Loader.BUFFER];
 
 					// we load all characters
 					for(int n; (n = inputStream.read(buffer)) != -1; )  
@@ -186,7 +186,7 @@ public class FFL_Loader {
 	 * @return a vector of String, each entry represents one line from the file
 	 */
 	public static ArrayList<String> loadText(String path, String filename) {
-		return FFL_Loader.loadText(path, filename, "UTF-8");
+		return ZFL_Loader.loadText(path, filename, "UTF-8");
 	}
 	
 	/**
