@@ -2,8 +2,10 @@ package views;
 
 import gui.Main;
 import gui.MainPanel;
+import handlers.KeyboardInputHandler;
 
 import java.awt.Graphics;
+import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
 
@@ -48,7 +50,13 @@ public class PauseView extends View {
 	}
 
 	public void run() {
-
+		if (KeyboardInputHandler.keys[KeyEvent.VK_P] || KeyboardInputHandler.keys[KeyEvent.VK_ESCAPE]){
+			this.panel.setView(GameView.class.getName());
+		}
+		try {
+			Thread.sleep(30);
+		} catch (Exception e) {
+		}
 	}
 
 	public void stop() {

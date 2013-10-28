@@ -2,7 +2,9 @@ package views;
 
 import game.Updater;
 import gui.MainPanel;
+import handlers.KeyboardInputHandler;
 
+import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
 
 import sprites.GameRenderer;
@@ -69,6 +71,13 @@ public class GameView extends View {
 	}
 
 	public void run() {
+		// Pause system
+		if (KeyboardInputHandler.keys[KeyEvent.VK_P] || KeyboardInputHandler.keys[KeyEvent.VK_ESCAPE]) {
+			this.panel.setView(PauseView.class.getName());
+		}
+		
+		
+		
 		//this.gameUpdate(); // Game state is updated
 		//this.gameRender(); // Render to a buffer
 		// this.paintScreen(); // Draw buffer to screen
