@@ -17,7 +17,7 @@ public class Player extends MovingEntity {
 	//fields
 	
 	//static fields
-	public final static double SPEED = 1.; // maximum speed of the player
+	public final static double SPEED = 2.; // maximum speed of the player
 	
 	
 
