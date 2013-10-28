@@ -14,6 +14,10 @@ import sprites.GameSprites;
  */
 public class Triangle extends MovingEntity {
 
+	//fields
+	public final static double SPEED = 2.;
+	
+	
 	/**
 	 * create a new Triangle, a moving entity that can follow the player
 	 * 
@@ -49,7 +53,7 @@ public class Triangle extends MovingEntity {
 		// we translate it to the center
 		rotation.translate(getWidth()/2, getHeight()/2);
 		// we compute the right angle
-		double angle = Math.atan2(speedX, speedY);
+		double angle = Math.atan2(speedX/Triangle.SPEED, speedY/Triangle.SPEED);
 		// now we rotate it
 		rotation.rotate(angle);
 		// we get back to the good translation
