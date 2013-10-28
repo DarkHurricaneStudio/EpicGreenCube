@@ -73,6 +73,5 @@ public class MainPanel extends JPanel {
 		}
 		this.currentView = this.views.get(s);
 		this.currentView.setActive(true);
-		KeyboardInputHandler.reset();
 	}
 }

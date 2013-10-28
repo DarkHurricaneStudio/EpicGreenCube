@@ -46,7 +46,7 @@ public class PauseView extends View {
 
 	// Methods
 	public void start() {
-
+		KeyboardInputHandler.reset();
 	}
 
 	public void run() {

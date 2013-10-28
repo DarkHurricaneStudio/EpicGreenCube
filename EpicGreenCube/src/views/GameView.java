@@ -66,8 +66,10 @@ public class GameView extends View {
 
 	// Methods
 	public void start() {
-		// Needed for the first loop
-		beforeTime = System.nanoTime();
+		KeyboardInputHandler.reset();
+		
+		// Needed for the first loop		
+		beforeTime = System.nanoTime();		
 	}
 
 	public void run() {
@@ -75,12 +77,9 @@ public class GameView extends View {
 		if (KeyboardInputHandler.keys[KeyEvent.VK_P] || KeyboardInputHandler.keys[KeyEvent.VK_ESCAPE]) {
 			this.panel.setView(PauseView.class.getName());
 		}
-		
-		
-		
-		//this.gameUpdate(); // Game state is updated
-		//this.gameRender(); // Render to a buffer
-		// this.paintScreen(); // Draw buffer to screen
+	
+		this.updater.update(); // Game is updated
+		this.paintScreen(); // Draw buffer to screen
 		
 		// NanoTime after the update/render
 		afterTime = System.nanoTime();
