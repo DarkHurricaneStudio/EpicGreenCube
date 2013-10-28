@@ -49,7 +49,7 @@ public class Updater {
 		// the zip where are stored the levels
 		String zip = "res/levels.zip";
 		// the number of levels
-		int numberOfLevels = 1;
+		int numberOfLevels = 2;
 		
 		//the list of backgrounds
 		ArrayList<String> images = new ArrayList<String>();
@@ -85,13 +85,6 @@ public class Updater {
 		this.deathCounter++;
 	}
 
-	/**
-	 * set a new level
-	 * @param actualLevel the actualLevel to set
-	 */
-	public void setActualLevel(int actualLevel) {
-		this.actualLevel = actualLevel;
-	}
 	
 	/**
 	 * get the number of death since the beginning of the session

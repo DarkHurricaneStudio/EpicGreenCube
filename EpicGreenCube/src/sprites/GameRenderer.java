@@ -43,11 +43,11 @@ public class GameRenderer {
 		
 		
 		BufferedImage screen = new BufferedImage(Main.WIDTH,Main.HEIGHT,BufferedImage.TYPE_INT_RGB);
-		Graphics g = screen.getGraphics();
 		
 		// we display all
 		//display the background level
-		g.drawImage(u.getActualLevel().getBackground(),0,0,null);
+		BufferedImage background = u.getActualLevel().getBackground();
+		Graphics g = background.getGraphics();
 		
 		// display the enemies
 		if (u.getActualLevel().getEnemies().size() != 0) {
@@ -71,7 +71,7 @@ public class GameRenderer {
 		g.drawImage(this.sprites.get(Player.class.getName()),(int) u.getPlayer().getPosX(),(int) u.getPlayer().getPosY(),null);
 		
 		// we return the screen
-		return screen;
+		return background;
 		
 	}
 	

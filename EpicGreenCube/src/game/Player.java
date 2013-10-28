@@ -32,6 +32,11 @@ public class Player extends MovingEntity {
 	public void update(Updater u) {
 		// First of all, we check the keyboard to change the speeds
 		checkKeyboard();
+		
+		// we check if we hit the exit
+		if(hitEntity(u.getActualLevel().getExit())) {
+			u.changeLevel(u.getActualLevelID()+1);
+		}
 
 		// we update position
 		this.posX += this.speedX;
@@ -78,6 +83,7 @@ public class Player extends MovingEntity {
 		// and triangles always face the player, so, there will always be the same distance between it and the player
 		Point playerCenter = new Point();
 		playerCenter.setLocation(this.posX + this.getWidth()/2, this.posY + this.getHeight()/2);
+		//System.out.println(Math.sqrt((this.posX+this.getWidth()/2+e.getPosX()-e.getWidth()/2)*(this.posX+this.getWidth()/2-e.getPosX()+e.getWidth()/2) + (this)));
 		if (playerCenter.distanceSq(e.getPosX()+e.getWidth()/2, e.getPosY()+e.getHeight()/2) <= (this.getWidth()/2 + e.getWidth()/2)) {
 			return true;
 		} else {
