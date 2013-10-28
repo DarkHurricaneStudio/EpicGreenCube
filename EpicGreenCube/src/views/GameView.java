@@ -80,7 +80,6 @@ public class GameView extends View {
 	
 		this.updater.update(); // Game is updated
 		this.paintScreen(); // Draw buffer to screen
-		
 		// NanoTime after the update/render
 		afterTime = System.nanoTime();
 		
