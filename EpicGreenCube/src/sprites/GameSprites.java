@@ -13,8 +13,8 @@ import java.awt.image.BufferedImage;
 
 public class GameSprites {
 	
-	public final static int PLAYER_WIDTH = 16;
-	public final static int PLAYER_HEIGHT = 16;
+	public final static int PLAYER_WIDTH = 24;
+	public final static int PLAYER_HEIGHT = 24;
 	public final static int CIRCLE_WIDTH = 0;
 	public final static int CIRCLE_HEIGHT = 0;
 	public final static int TRIANGLE_WIDTH = 0;
