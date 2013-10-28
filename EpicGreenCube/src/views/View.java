@@ -1,5 +1,6 @@
 package views;
 
+import gui.Main;
 import gui.MainPanel;
 
 import java.awt.Graphics;
@@ -19,6 +20,11 @@ public abstract class View {
 	protected MainPanel panel;
 
 	/**
+	 * Render of the view
+	 */
+	protected BufferedImage render;
+	
+	/**
 	 * True if the panel is currently active
 	 */
 	protected boolean active = false;
@@ -26,6 +32,7 @@ public abstract class View {
 	// Constructors
 	public View(MainPanel panel) {
 		this.panel = panel;
+		this.render = new BufferedImage(Main.WIDTH, Main.HEIGHT, BufferedImage.TYPE_INT_ARGB);
 	}
 
 	// Methods
@@ -34,7 +41,7 @@ public abstract class View {
 	 * 
 	 * @return Render of the view
 	 */
-	protected abstract void render(Graphics g);
+	protected abstract void render();
 
 	/**
 	 * Active rendering on the field panel
@@ -42,7 +49,7 @@ public abstract class View {
 	protected void paintScreen() {
 		Graphics g = this.panel.getGraphics();
 		if (g != null) {
-			this.render(g);
+			g.drawImage(this.render, 0, 0, null);
 		} else {
 			System.out.println("Graphics error");
 		}

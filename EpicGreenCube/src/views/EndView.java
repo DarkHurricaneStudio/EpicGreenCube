@@ -50,7 +50,7 @@ public class EndView extends View {
 
 	}
 
-	public void render(Graphics g) {
-		g.drawImage(this.background, 0, 0, null);
+	public void render() {
+		this.render.getGraphics().drawImage(this.background, 0, 0, null);
 	}
 }

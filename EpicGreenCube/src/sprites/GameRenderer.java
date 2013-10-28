@@ -35,15 +35,12 @@ public class GameRenderer {
 		
 	}
 	
-	public void render(Graphics argG,Updater u) {
+	public void render(Graphics g,Updater u) {
 		// TODO :
 		// level number
 		// death number
 		// funny sentence
-		
-		BufferedImage screen = new BufferedImage(Main.WIDTH, Main.HEIGHT, BufferedImage.TYPE_INT_ARGB);
-		Graphics g = screen.getGraphics();
-		
+
 		// we display all
 		//display the background level		
 		g.drawImage(u.getActualLevel().getBackground(),0,0,null);
@@ -66,8 +63,6 @@ public class GameRenderer {
 		
 		//display the player
 		g.drawImage(this.sprites.get(Player.class.getName()),(int) u.getPlayer().getPosX(),(int) u.getPlayer().getPosY(),null);
-		
-		argG.drawImage(screen,0,0,null);
 	}
 	
 

@@ -63,6 +63,7 @@ public class BeginView extends View {
 		beforeTime = System.currentTimeMillis();
 
 		// Paint the background
+		this.render();
 		this.paintScreen();
 
 		// Wait for the player to push enter
@@ -78,7 +79,7 @@ public class BeginView extends View {
 
 	}
 
-	public void render(Graphics g) {
-		g.drawImage(this.background, 0, 0, null);
+	public void render() {
+		this.render.getGraphics().drawImage(this.background, 0, 0, null);
 	}
 }
