@@ -17,8 +17,8 @@ public abstract class Entity {
 	
 	// spawn position
 	// we use these fields when the player die. It's better than reloading all the level
-	private double spawnX;
-	private double spawnY;
+	protected double spawnX;
+	protected double spawnY;
 	
 	protected int width;
 	protected int height;

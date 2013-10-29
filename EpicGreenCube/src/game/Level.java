@@ -60,9 +60,11 @@ public class Level {
 					
 				case "Circle":
 					// add the circle
-					// TODO : the waypoint
 					ArrayList<Point> path = new ArrayList<Point>();
-					this.enemies.add(new Circle(Double.parseDouble(parameters[1]),Double.parseDouble(parameters[2]),path));
+					for (int j=1;j<parameters.length;j=j+2){
+						path.add(new Point(Integer.parseInt(parameters[j]),Integer.parseInt(parameters[j+1])));
+					}
+					this.enemies.add(new Circle(path));
 					break;
 					
 				case "Exit":
