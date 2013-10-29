@@ -130,4 +130,12 @@ public class Updater {
 		
 	}
 
+	public void die(){
+		this.deathCounter++;
+		this.player.teleport(this.getActualLevel().getSpawnX(),this.getActualLevel().getSpawnX());
+		ArrayList<MovingEntity> entities = this.getActualLevel().getEnemies();
+		for (MovingEntity me:entities){
+			me.reset();
+		}
+	}
 }
