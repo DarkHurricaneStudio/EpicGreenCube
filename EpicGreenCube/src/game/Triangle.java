@@ -15,7 +15,7 @@ import sprites.GameSprites;
 public class Triangle extends MovingEntity {
 
 	//fields
-	public final static double SPEED = 2.;
+	public final static double SPEED = 1.5;
 	
 
 	
@@ -61,7 +61,7 @@ public class Triangle extends MovingEntity {
 		// we compute the right angle
 		double angle;
 		if (speedX != 0){
-			angle = Math.atan2((speedY/Triangle.SPEED),-(speedX/Triangle.SPEED));
+			angle = Math.atan2(-(speedY/Triangle.SPEED),-(speedX/Triangle.SPEED));
 		} else {
 			angle = 0;
 		}

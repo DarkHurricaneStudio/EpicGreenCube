@@ -32,12 +32,12 @@ public class MainFrame extends JFrame {
 		this.pack();
 		this.setLocationRelativeTo(null);		
 		this.setVisible(true);
-		
-		this.mainPanel.requestFocus();
+
 	}
 	
 	// Methods
 	public void go(){
+		this.mainPanel.requestFocus();
 		this.mainPanel.setView(BeginView.class.getName());
 	}
 }

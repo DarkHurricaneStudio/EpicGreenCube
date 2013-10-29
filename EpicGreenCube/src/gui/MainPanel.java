@@ -32,11 +32,6 @@ public class MainPanel extends JPanel {
 	 */
 	private View currentView;
 
-	/**
-	 * KeyListener of the application
-	 */
-	private KeyListener keyListener; 
-
 	// Constructors
 	/**
 	 * Initialize the panel and create the views
@@ -45,8 +40,8 @@ public class MainPanel extends JPanel {
 		this.setPreferredSize(new Dimension(Main.WIDTH, Main.HEIGHT));
 		this.createViews();
 
-		this.keyListener = new KeyboardInputHandler();
-		this.addKeyListener(this.keyListener);
+		this.addKeyListener(new KeyboardInputHandler());
+
 	}
 
 	// Methods
