@@ -63,10 +63,25 @@ public class GameSprites {
 		BufferedImage res = new BufferedImage(GameSprites.TRIANGLE_WIDTH,GameSprites.TRIANGLE_HEIGHT,BufferedImage.TYPE_INT_ARGB);
 		Graphics g = res.getGraphics();
 		
+		
+		int[] posX = new int[3];
+		int[] posY = new int[3];
+		
+		int tmp = (int) ((Math.sqrt(3)/2)*TRIANGLE_HEIGHT);
+		
+		posX[0] = 0;
+		posY[0] = GameSprites.TRIANGLE_HEIGHT/2;
+				
+		posX[1] = tmp;
+		posY[1] = 0;
+		
+		posX[2] = tmp;
+		posY[2] = GameSprites.TRIANGLE_HEIGHT;
+		
 		g.setColor(Color.magenta);
-		g.fillRect(0, 0, GameSprites.TRIANGLE_WIDTH,GameSprites.TRIANGLE_HEIGHT);
+		g.fillPolygon(posX, posY, 3);
 		g.setColor(Color.black);
-		g.drawRect(0, 0, GameSprites.TRIANGLE_WIDTH-1,GameSprites.TRIANGLE_HEIGHT-1);
+		g.drawPolygon(posX, posY, 3);
 		
 		return res;
 	}
