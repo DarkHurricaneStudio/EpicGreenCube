@@ -4,7 +4,6 @@ import game.Updater;
 import gui.MainPanel;
 import handlers.KeyboardInputHandler;
 
-import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 
 import sprites.GameRenderer;
@@ -30,12 +29,12 @@ public class GameView extends View {
 	/**
 	 * 
 	 */
-	private long beforeTime, timeDiff, afterTime, sleepTime,overSleepTime;
+	private long beforeTime,sleepTime;
 	
 	/**
 	 * Time (in ns) per frame
 	 */
-	private int period = 1000000000 / GameView.FPS;
+	private final static int PERIOD = 1000000000 / GameView.FPS;
 	
 	/**
 	 * Number of frames too long following the period
@@ -51,6 +50,12 @@ public class GameView extends View {
 	 * Number of errors before yielding
 	 */
 	private final static int NO_DELAYS_PER_YIELD = 10;
+	
+	/**
+	 * Used for FPS counter
+	 */
+	private long beforeFPS,counterFPS;
+	
 	
 	// Constructors
 	/**
@@ -69,7 +74,8 @@ public class GameView extends View {
 		KeyboardInputHandler.reset();
 		
 		// Needed for the first loop		
-		beforeTime = System.nanoTime();		
+		beforeTime = System.nanoTime();	
+		beforeFPS = System.nanoTime();
 	}
 
 	public void run() {
@@ -79,37 +85,32 @@ public class GameView extends View {
 		}
 	
 		this.updater.update(); // Game is updated
-		this.render();
+		this.render(); // Save in a buffer
 		this.paintScreen(); // Draw buffer to screen
-		// NanoTime after the update/render
-		afterTime = System.nanoTime();
-		
-		// Time (in ns) using to update/render
-		timeDiff = afterTime - beforeTime;
 		
 		// Time to sleep, period minus time used
-		sleepTime = (period - timeDiff) - overSleepTime;
+		sleepTime = (GameView.PERIOD - (System.nanoTime() - beforeTime));
 
 		if (sleepTime > 0) { // Some time left in this cycle
-			try {
-				// Sleep sleepTime (convert in ms)
-				Thread.sleep(sleepTime / 1000000L);
-			} catch (InterruptedException e) {
-				// If there's a sleep error
-				System.out.println("Bro error");
-				overSleepTime = (System.nanoTime() - afterTime) - sleepTime;
-			}
+			while (System.nanoTime() - beforeTime < GameView.PERIOD ) {}
 		} else { // sleepTime <= 0; frame took longer than the period
-			System.out.println("Bro SUPER error");
-			
-			overSleepTime = 0L;
+			System.out.println("Too long");			
 
-			// noDelays is incremented then compared 
 			if (++noDelays >= GameView.NO_DELAYS_PER_YIELD) {
 				Thread.yield(); // Give another thread 	a chance to run
 				noDelays = 0;
 			}
 		}
+		
+		if (System.nanoTime() - beforeFPS < 1000000000){
+			this.counterFPS++;
+		}
+		else {
+			System.out.println(this.counterFPS);
+			this.counterFPS = 0;
+			this.beforeFPS = System.nanoTime();
+		}
+		
 		beforeTime = System.nanoTime();
 	}
 

@@ -7,7 +7,7 @@ import java.awt.image.BufferedImage;
 
 /**
  * All methods return a BufferedImage for each Entity
- * @author valentin
+ * @author valentin/Robrock
  * @version 1
  */
 

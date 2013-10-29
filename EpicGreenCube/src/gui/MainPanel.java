@@ -51,7 +51,7 @@ public class MainPanel extends JPanel {
 
 	// Methods
 	/**
-	 * Create all the views and set the first view
+	 * Create all the views
 	 */
 	private void createViews() {
 		this.views = new HashMap<>();

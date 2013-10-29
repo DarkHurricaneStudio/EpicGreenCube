@@ -38,8 +38,7 @@ public abstract class View {
 
 	// Methods
 	/**
-	 * Return the render of the view
-	 * 
+	 * Print the render on a bufferedImage
 	 * @return Render of the view
 	 */
 	protected abstract void render();
@@ -51,24 +50,24 @@ public abstract class View {
 		Graphics g = this.panel.getGraphics();
 		if (g != null) {
 			g.drawImage(this.render, 0, 0, null);
-			Toolkit.getDefaultToolkit().sync();
+			Toolkit.getDefaultToolkit().sync(); // Useful for Linux (Killer Game Programming In Java)
 		} else {
 			System.out.println("Graphics error");
 		}
 	}
 
 	/**
-	 * Set a view active or not
-	 * 
-	 * @param b
-	 *            State of the view
+	 * Set a view active or not	
+	 * @param b	State of the view
 	 */
 	public void setActive(boolean b) {
 		this.active = b;
-
 		this.go();
 	}
 
+	/**
+	 * Start the instructions of the view
+	 */
 	public void go() {
 		this.start();
 		while (this.active) {

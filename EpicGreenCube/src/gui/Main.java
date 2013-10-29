@@ -1,6 +1,5 @@
 package gui;
 
-import handlers.KeyboardInputHandler;
 
 /**
  * Main class containing the main method

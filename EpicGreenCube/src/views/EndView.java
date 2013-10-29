@@ -1,9 +1,7 @@
 package views;
 
-import gui.Main;
 import gui.MainPanel;
 
-import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.io.File;
 

@@ -1,10 +1,8 @@
 package views;
 
-import gui.Main;
 import gui.MainPanel;
 import handlers.KeyboardInputHandler;
 
-import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;

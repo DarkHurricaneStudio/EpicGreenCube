@@ -5,7 +5,6 @@ import game.Exit;
 import game.Player;
 import game.Triangle;
 import game.Updater;
-import gui.Main;
 
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
@@ -13,15 +12,17 @@ import java.util.HashMap;
 
 /**
  * The rendering of the game
- * @author valentin
+ * @author valentin/Robrock
  * version 1
  * 
  */
 public class GameRenderer {
 	
-	//fields
+	// Fields
 	HashMap<String, BufferedImage>sprites;
 	
+	
+	// Constructors
 	public GameRenderer() {
 		
 		// we create the hashmap of all the sprites used in the game
@@ -35,6 +36,8 @@ public class GameRenderer {
 		
 	}
 	
+	
+	// Methods
 	public void render(Graphics g,Updater u) {
 		// TODO :
 		// level number
