@@ -64,7 +64,7 @@ public class GameRenderer {
 			for (int i = 0; i < u.getActualLevel().getEnemies().size(); i++) {
 
 				// we create a transitional sprite
-				BufferedImage sprite = new BufferedImage(u.getActualLevel().getEnemies().get(i).getWidth(), u.getActualLevel().getEnemies().get(i).getHeight(), BufferedImage.TYPE_INT_ARGB);
+				BufferedImage sprite = new BufferedImage(u.getActualLevel().getEnemies().get(i).getWidth()+2, u.getActualLevel().getEnemies().get(i).getHeight()+2, BufferedImage.TYPE_INT_ARGB);
 
 				// if the enemy is a triangle, we have to rotate it
 				if (u.getActualLevel().getEnemies().get(i).getClass().getName() == Triangle.class.getName()) {
