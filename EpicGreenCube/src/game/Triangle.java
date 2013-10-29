@@ -36,6 +36,9 @@ public class Triangle extends MovingEntity {
 	public void update(Updater u) {
 		// TODO : what to do ?
 		this.turnToPlayer(u.getPlayer());
+		//we transform the speed with the real values
+		this.speedX *= Triangle.SPEED;
+		this.speedY *= Triangle.SPEED;
 
 		// we update position
 		this.posX += this.speedX;
@@ -53,11 +56,12 @@ public class Triangle extends MovingEntity {
 		// we translate it to the center
 		rotation.translate(getWidth()/2, getHeight()/2);
 		// we compute the right angle
-		double angle = Math.atan2(speedX/Triangle.SPEED, speedY/Triangle.SPEED);
+		double angle = Math.atan2(speedY/Triangle.SPEED, speedX/Triangle.SPEED);
+		System.out.println("angle:"+angle);
 		// now we rotate it
 		rotation.rotate(angle);
 		// we get back to the good translation
-		rotation.translate(getWidth()/2, -getHeight()/2);
+		rotation.translate(-getWidth()/2, -getHeight()/2);
 		
 		// we create the operation for the rotation
 		AffineTransformOp rotationOp = new AffineTransformOp(rotation, AffineTransformOp.TYPE_BILINEAR);

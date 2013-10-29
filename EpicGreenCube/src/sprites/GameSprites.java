@@ -1,6 +1,7 @@
 package sprites;
 
 
+
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
@@ -15,10 +16,10 @@ public class GameSprites {
 	
 	public final static int PLAYER_WIDTH = 16;
 	public final static int PLAYER_HEIGHT = 16;
-	public final static int CIRCLE_WIDTH = 0;
-	public final static int CIRCLE_HEIGHT = 0;
-	public final static int TRIANGLE_WIDTH = 0;
-	public final static int TRIANGLE_HEIGHT = 0;
+	public final static int CIRCLE_WIDTH = 16;
+	public final static int CIRCLE_HEIGHT = 16;
+	public final static int TRIANGLE_WIDTH = 16;
+	public final static int TRIANGLE_HEIGHT = 16;
 	public final static int EXIT_WIDTH = 16;
 	public final static int EXIT_HEIGHT = 16;
 
@@ -43,7 +44,15 @@ public class GameSprites {
 	 * @return the circle's sprite
 	 */
 	public static BufferedImage circleSprite() {
-		return null;
+		BufferedImage res = new BufferedImage(GameSprites.CIRCLE_WIDTH,GameSprites.CIRCLE_HEIGHT,BufferedImage.TYPE_INT_ARGB);
+		Graphics g = res.getGraphics();
+		
+		g.setColor(Color.red);
+		g.fillOval(0, 0, GameSprites.CIRCLE_WIDTH, GameSprites.CIRCLE_HEIGHT);
+		g.setColor(Color.black);
+		g.drawOval(0, 0, GameSprites.CIRCLE_WIDTH-1, GameSprites.CIRCLE_HEIGHT-1);
+		
+		return res;
 	}
 	
 	/**
@@ -51,7 +60,15 @@ public class GameSprites {
 	 * @return the triangle's sprite
 	 */
 	public static BufferedImage triangleSprite() {
-		return null;
+		BufferedImage res = new BufferedImage(GameSprites.TRIANGLE_WIDTH,GameSprites.TRIANGLE_HEIGHT,BufferedImage.TYPE_INT_ARGB);
+		Graphics g = res.getGraphics();
+		
+		g.setColor(Color.magenta);
+		g.fillRect(0, 0, GameSprites.TRIANGLE_WIDTH,GameSprites.TRIANGLE_HEIGHT);
+		g.setColor(Color.black);
+		g.drawRect(0, 0, GameSprites.TRIANGLE_WIDTH-1,GameSprites.TRIANGLE_HEIGHT-1);
+		
+		return res;
 	}
 	
 	/**

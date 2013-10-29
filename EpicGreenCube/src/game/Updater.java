@@ -49,7 +49,7 @@ public class Updater {
 		// the zip where are stored the levels
 		String zip = "res/levels.zip";
 		// the number of levels
-		int numberOfLevels = 2;
+		int numberOfLevels = 3;
 		
 		//the list of backgrounds
 		ArrayList<String> images = new ArrayList<String>();
@@ -123,6 +123,10 @@ public class Updater {
 	public void update() {
 		// We update the player
 		this.player.update(this);
+		// and the entities
+		for (int i = 0;i<this.levels.get(this.actualLevel).getEnemies().size();i++) {
+			this.levels.get(this.actualLevel).getEnemies().get(i).update(this);
+		}
 		
 	}
 

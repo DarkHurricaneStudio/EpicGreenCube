@@ -55,15 +55,17 @@ public class Circle extends MovingEntity {
 	public void update(Updater u) {
 		// we check if the circle is in its goal
 		// it's comparable to see if the distance from the center of the circle to the goal is lower than the ray
-		if (this.waypoints.get(this.goal).distanceSq((this.posX+this.getWidth()/2.0),(this.posY+this.getHeight()/2.0)) <= this.getHeight()/2.0) {
-			// we go to the new goal !
-			this.goal++;
-			turnToGoal();
+		if(this.waypoints.size() != 0) {
+			if (this.waypoints.get(this.goal).distanceSq((this.posX+this.getWidth()/2.0),(this.posY+this.getHeight()/2.0)) <= this.getHeight()/2.0) {
+				// we go to the new goal !
+				this.goal++;
+				turnToGoal();
+			}
+
+			//we update the position
+			this.posX += speedX;
+			this.posY += speedY;
 		}
-		
-		//we update the position
-		this.posX += speedX;
-		this.posY += speedY;
 
 	}
 	
