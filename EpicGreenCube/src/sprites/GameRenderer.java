@@ -48,25 +48,28 @@ public class GameRenderer {
 		//display the background level		
 		g.drawImage(u.getActualLevel().getBackground(),0,0,null);
 		if (u.getActualLevel().getEnemies().size() != 0) {
-			
+
 			for (int i = 0; i < u.getActualLevel().getEnemies().size();i++) {
-			
+
 				// we create a transitional sprite
-				BufferedImage sprite = this.sprites.get(u.getActualLevel().getEnemies().get(i).getClass().getName());
-			
+				BufferedImage sprite = new BufferedImage(u.getActualLevel().getEnemies().get(i).getWidth(),u.getActualLevel().getEnemies().get(i).getHeight(),BufferedImage.TYPE_INT_ARGB);
+
 				// if the enemy is a triangle, we have to rotate it
 				if (u.getActualLevel().getEnemies().get(i).getClass().getName() == Triangle.class.getName()) {
-					sprite = u.getActualLevel().getEnemies().get(i).rotateSprite().filter(sprite,null);
+					sprite = u.getActualLevel().getEnemies().get(i).rotateSprite().filter(this.sprites.get(u.getActualLevel().getEnemies().get(i).getClass().getName()),null);
+				} else {
+					sprite = this.sprites.get(u.getActualLevel().getEnemies().get(i).getClass().getName());
 				}
 				g.drawImage(sprite,(int) u.getActualLevel().getEnemies().get(i).getPosX(), (int) u.getActualLevel().getEnemies().get(i).getPosY(), null);
 			}
+
 		}
 		//display the goal
 		g.drawImage(this.sprites.get(Exit.class.getName()),(int) u.getActualLevel().getExit().getPosX(),(int) u.getActualLevel().getExit().getPosY(),null);
-		
+
 		//display the player
 		g.drawImage(this.sprites.get(Player.class.getName()),(int) u.getPlayer().getPosX(),(int) u.getPlayer().getPosY(),null);
 	}
-	
+
 
 }

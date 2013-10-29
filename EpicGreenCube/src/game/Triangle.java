@@ -17,6 +17,8 @@ public class Triangle extends MovingEntity {
 	//fields
 	public final static double SPEED = 2.;
 	
+
+	
 	
 	/**
 	 * create a new Triangle, a moving entity that can follow the player
@@ -30,6 +32,7 @@ public class Triangle extends MovingEntity {
 		super(spawnX, spawnY);
 		this.width = GameSprites.TRIANGLE_WIDTH;
 		this.height = GameSprites.TRIANGLE_HEIGHT;
+
 	}
 
 	@Override
@@ -58,12 +61,13 @@ public class Triangle extends MovingEntity {
 		// we compute the right angle
 		double angle;
 		if (speedX != 0){
-			angle = Math.atan2((speedY/Triangle.SPEED),(speedX/Triangle.SPEED))*180/(2*Math.PI);
+			angle = Math.atan2((speedY/Triangle.SPEED),-(speedX/Triangle.SPEED));
 		} else {
 			angle = 0;
 		}
+
 		
-		System.out.println("angle:"+angle);
+
 		// now we rotate it
 		rotation.rotate(angle);
 		// we get back to the good translation

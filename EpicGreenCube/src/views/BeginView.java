@@ -63,7 +63,7 @@ public class BeginView extends View {
 		// Paint the background
 		this.render();
 		this.paintScreen();
-
+System.out.println(KeyboardInputHandler.keys[KeyEvent.VK_ENTER]);
 		// Wait for the player to push enter
 		if (KeyboardInputHandler.keys[KeyEvent.VK_ENTER]) {
 			this.panel.setView(GameView.class.getName());
