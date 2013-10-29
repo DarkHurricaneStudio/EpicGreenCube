@@ -34,7 +34,7 @@ public class Player extends MovingEntity {
 		checkKeyboard();
 		
 		// we check if we hit the exit
-		if(hitEntity(u.getActualLevel().getExit())) {
+		if(reachedTheGoal(u.getActualLevel().getExit())) {
 			u.changeLevel(u.getActualLevelID()+1);
 		}
 		for (int i = 0;i<u.getActualLevel().getEnemies().size();i++) {
@@ -85,8 +85,7 @@ public class Player extends MovingEntity {
 		// We use the approximation that the entity and the player are circles.
 		// for the entity, this is quite right because the circles are circle (hell yeah)
 		// and triangles always face the player, so, there will always be the same distance between it and the player
-
-		if ((Math.sqrt((e.getPosX()+e.getWidth()/2-this.posX-this.getWidth()/2)*(e.getPosX()+e.getWidth()/2-this.posX-this.getWidth()/2)) + (e.getPosY()+e.getHeight()/2-this.posY-this.getHeight()/2)*(e.getPosY()+e.getHeight()/2-this.posY-this.getHeight()/2)) <= (this.getWidth()/2 + e.getWidth()/2)) {
+		if (Math.sqrt((this.posX+this.getWidth()/2-e.getPosX()-e.getWidth()/2)*(this.posX+this.getWidth()/2-e.getPosX()-e.getWidth()/2) + (this.posY+this.getHeight()/2-e.getPosY()-e.getHeight()/2)*(this.posY+this.getHeight()/2-e.getPosY()-e.getHeight()/2)) <= (this.getWidth()/2 + e.getWidth()/2)) {
 			return true;
 		} else {
 			return false;
