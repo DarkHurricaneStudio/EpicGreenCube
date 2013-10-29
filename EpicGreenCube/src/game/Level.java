@@ -20,7 +20,6 @@ public class Level {
 	private ArrayList<String> messages; // some messages to display ?
 	private double spawnX;
 	private double spawnY;
-	private int currentSentence;
 	
 	/**
 	 * Load and create a Level from a ZIP with only a number as param
@@ -34,8 +33,6 @@ public class Level {
 		this.enemies = new ArrayList<MovingEntity>();
 		// and we do the same for the text file
 		loadTextLevel(textFile);
-		
-		this.currentSentence = 0;
 	}
 	
 	/**
@@ -117,12 +114,11 @@ public class Level {
 		return this.spawnY;
 	}
 	
-	public String getNextSentence(){
-		String res = this.messages.get(this.currentSentence);
-		if (this.currentSentence < this.messages.size()-1){
-			this.currentSentence++;
+	public String getNextSentence(int i){
+		if (i >= this.messages.size()){
+			i = this.messages.size()-1;
 		}
-		return res;
+		return this.messages.get(i);
 	}
 
 
