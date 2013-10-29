@@ -56,7 +56,7 @@ public class GameRenderer {
 			
 				// if the enemy is a triangle, we have to rotate it
 				if (u.getActualLevel().getEnemies().get(i).getClass().getName() == Triangle.class.getName()) {
-					u.getActualLevel().getEnemies().get(i).rotateSprite().filter(sprite,null);
+					sprite = u.getActualLevel().getEnemies().get(i).rotateSprite().filter(sprite,null);
 				}
 				g.drawImage(sprite,(int) u.getActualLevel().getEnemies().get(i).getPosX(), (int) u.getActualLevel().getEnemies().get(i).getPosY(), null);
 			}
