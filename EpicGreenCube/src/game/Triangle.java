@@ -57,7 +57,7 @@ public class Triangle extends MovingEntity {
 		// we create an affine transformation
 		AffineTransform rotation = new AffineTransform();
 		// we translate it to the center
-		rotation.translate(getWidth()/2, getHeight()/2);
+		rotation.translate(getWidth()/2+1, getHeight()/2+1);
 		// we compute the right angle
 		double angle;
 		if (speedX != 0){
@@ -71,7 +71,7 @@ public class Triangle extends MovingEntity {
 		// now we rotate it
 		rotation.rotate(angle);
 		// we get back to the good translation
-		rotation.translate(-getWidth()/2, -getHeight()/2);
+		rotation.translate(-getWidth()/2-1, -getHeight()/2-1);
 		
 		// we create the operation for the rotation
 		AffineTransformOp rotationOp = new AffineTransformOp(rotation, AffineTransformOp.TYPE_BILINEAR);
