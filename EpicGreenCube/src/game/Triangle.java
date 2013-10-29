@@ -56,7 +56,13 @@ public class Triangle extends MovingEntity {
 		// we translate it to the center
 		rotation.translate(getWidth()/2, getHeight()/2);
 		// we compute the right angle
-		double angle = Math.atan2((speedY/Triangle.SPEED),(speedX/Triangle.SPEED))*180/(2*Math.PI);
+		double angle;
+		if (speedX != 0){
+			angle = Math.atan2((speedY/Triangle.SPEED),(speedX/Triangle.SPEED))*180/(2*Math.PI);
+		} else {
+			angle = 0;
+		}
+		
 		System.out.println("angle:"+angle);
 		// now we rotate it
 		rotation.rotate(angle);
