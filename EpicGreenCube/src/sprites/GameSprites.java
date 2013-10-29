@@ -48,7 +48,7 @@ public class GameSprites {
 		Graphics g = res.getGraphics();
 		
 		g.setColor(Color.red);
-		g.fillOval(0, 0, GameSprites.CIRCLE_WIDTH, GameSprites.CIRCLE_HEIGHT);
+		g.fillOval(0, 0, GameSprites.CIRCLE_WIDTH-1, GameSprites.CIRCLE_HEIGHT-1);
 		g.setColor(Color.black);
 		g.drawOval(0, 0, GameSprites.CIRCLE_WIDTH-1, GameSprites.CIRCLE_HEIGHT-1);
 		
