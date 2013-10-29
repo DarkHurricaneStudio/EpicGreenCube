@@ -37,6 +37,10 @@ public class Player extends MovingEntity {
 		if(hitEntity(u.getActualLevel().getExit())) {
 			u.changeLevel(u.getActualLevelID()+1);
 		}
+		for (int i = 0;i<u.getActualLevel().getEnemies().size();i++) {
+			if (hitEntity(u.getActualLevel().getEnemies().get(i)))
+				u.die();	
+		}
 
 		// we update position
 		this.posX += this.speedX;
