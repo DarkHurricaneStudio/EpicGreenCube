@@ -18,8 +18,8 @@ public class GameSprites {
 	public final static int PLAYER_HEIGHT = 16;
 	public final static int CIRCLE_WIDTH = 16;
 	public final static int CIRCLE_HEIGHT = 16;
-	public final static int TRIANGLE_WIDTH = 16;
-	public final static int TRIANGLE_HEIGHT = 16;
+	public final static int TRIANGLE_WIDTH = 20;
+	public final static int TRIANGLE_HEIGHT = 20;
 	public final static int EXIT_WIDTH = 16;
 	public final static int EXIT_HEIGHT = 16;
 
