@@ -24,11 +24,16 @@ public abstract class View {
 	 * Render of the view
 	 */
 	protected BufferedImage render;
-	
+
 	/**
 	 * True if the panel is currently active
 	 */
 	protected boolean active = false;
+
+	/**
+	 * Graphics object
+	 */
+	private Graphics g;
 
 	// Constructors
 	public View(MainPanel panel) {
@@ -39,6 +44,7 @@ public abstract class View {
 	// Methods
 	/**
 	 * Print the render on a bufferedImage
+	 * 
 	 * @return Render of the view
 	 */
 	protected abstract void render();
@@ -47,18 +53,15 @@ public abstract class View {
 	 * Active rendering on the field panel
 	 */
 	protected void paintScreen() {
-		Graphics g = this.panel.getGraphics();
-		if (g != null) {
-			g.drawImage(this.render, 0, 0, null);
-			Toolkit.getDefaultToolkit().sync(); // Useful for Linux (Killer Game Programming In Java)
-		} else {
-			System.out.println("Graphics error");
-		}
+		g.drawImage(this.render, 0, 0, null);
+		Toolkit.getDefaultToolkit().sync(); // Useful for Linux (Killer Game Programming In Java)
 	}
 
 	/**
-	 * Set a view active or not	
-	 * @param b	State of the view
+	 * Set a view active or not
+	 * 
+	 * @param b
+	 *            State of the view
 	 */
 	public void setActive(boolean b) {
 		this.active = b;
@@ -69,6 +72,7 @@ public abstract class View {
 	 * Start the instructions of the view
 	 */
 	public void go() {
+		this.g = this.panel.getGraphics();
 		this.start();
 		while (this.active) {
 			this.run();
