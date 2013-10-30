@@ -49,6 +49,7 @@ public class GameRenderer {
 		}
 	}
 
+
 	// Methods
 	public void render(Graphics g, Updater u) {
 		// TODO :
