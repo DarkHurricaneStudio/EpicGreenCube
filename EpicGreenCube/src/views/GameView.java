@@ -106,11 +106,6 @@ public class GameView extends View {
 			}
 		}
 		
-		System.out.println(updateNow-now);
-		System.out.println(renderNow-updateNow);
-		System.out.println(paintNow-renderNow);
-		
-		
 		if (System.nanoTime() - beforeFPS < 1000000000){
 			this.counterFPS++;
 		}
