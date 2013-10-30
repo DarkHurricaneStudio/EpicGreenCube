@@ -2,7 +2,6 @@ package game;
 
 import handlers.KeyboardInputHandler;
 
-import java.awt.Point;
 import java.awt.event.KeyEvent;
 
 import sprites.GameSprites;
@@ -41,6 +40,7 @@ public class Player extends MovingEntity {
 			if (hitEntity(u.getActualLevel().getEnemies().get(i)))
 				u.die();	
 		}
+
 		// we check if we hit a wall
 		if (verticalWallCollision(u.getActualLevel().getBackground()) ||horizontalWallCollision(u.getActualLevel().getBackground()))
 			u.die();

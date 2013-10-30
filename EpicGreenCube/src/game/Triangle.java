@@ -43,9 +43,9 @@ public class Triangle extends MovingEntity {
 		this.speedX *= Triangle.SPEED;
 		this.speedY *= Triangle.SPEED;
 
-		// we update position
-		this.posX += this.speedX;
-		this.posY += this.speedY;
+		// we check if we hit wall
+		verticalWallCollision(u.getActualLevel().getBackground());
+		horizontalWallCollision(u.getActualLevel().getBackground());
 	}
 
 	public void turnToPlayer(Player p) {
