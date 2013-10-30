@@ -115,7 +115,7 @@ public class GameView extends View {
 			this.counterFPS++;
 		}
 		else {
-			//System.out.println(this.counterFPS);
+			System.out.println(this.counterFPS);
 			this.counterFPS = 1;
 			this.beforeFPS = System.nanoTime();
 		}
