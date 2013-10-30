@@ -41,10 +41,9 @@ public class Player extends MovingEntity {
 			if (hitEntity(u.getActualLevel().getEnemies().get(i)))
 				u.die();	
 		}
-
-		// we update position
-		this.posX += this.speedX;
-		this.posY += this.speedY;
+		// we check if we hit a wall
+		if (verticalWallCollision(u.getActualLevel().getBackground()) ||horizontalWallCollision(u.getActualLevel().getBackground()))
+			u.die();
 
 	}
 	
