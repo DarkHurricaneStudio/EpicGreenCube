@@ -22,7 +22,6 @@ public class Updater {
 	private int actualLevel; // the ID of the level witch the player is in
 	private ArrayList<Fragment> fragments; // list of all fragments actually displayed
 	private ArrayList<Level> levels; // the list of levels
-	
 	private final static int LEVELS_NUMBER = 10;
 	
 
@@ -43,7 +42,6 @@ public class Updater {
 
 		// we create the array of fragments
 		this.fragments = new ArrayList<Fragment>();
-		
 	}
 	
 	public void loadLevels() {
@@ -132,6 +130,7 @@ public class Updater {
 
 	public void die(){
 		this.deathCounter++;
+		this.getActualLevel().addDeath();
 		this.player.teleport(this.getActualLevel().getSpawnX(),this.getActualLevel().getSpawnY());
 		ArrayList<MovingEntity> entities = this.getActualLevel().getEnemies();
 		for (MovingEntity me:entities){

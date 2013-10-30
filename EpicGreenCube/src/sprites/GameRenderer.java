@@ -26,7 +26,7 @@ public class GameRenderer {
 	// Fields
 	HashMap<String, BufferedImage> sprites;
 	private static Font font;
-
+	
 	// Constructors
 	public GameRenderer() {
 
@@ -91,7 +91,7 @@ public class GameRenderer {
 		g.drawString("Deaths  : "+u.getDeathNumber(),10,360);
 		
 		// display the sentence		
-		g.drawString(u.getActualLevel().getNextSentence(u.getDeathNumber()),10,385);
+		g.drawString(u.getActualLevel().getNextSentence(),10,385);
 	}
 
 }
