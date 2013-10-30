@@ -88,8 +88,6 @@ public class ZFL_Loader {
 		ArrayList<BufferedImage> images = new ArrayList<BufferedImage>();
 		// we try
 		try {
-			// we create an object to load the file into a byte stream
-			ByteArrayOutputStream out = new ByteArrayOutputStream();
 
 			// we load the Zip file
 			ZipFile zipFile = new ZipFile(path);
@@ -97,6 +95,10 @@ public class ZFL_Loader {
 
 			// we work on each filename
 			for (int i=0; i < filenames.size();i++) {
+				
+				// we create an object to load the file into a byte stream
+				ByteArrayOutputStream out = new ByteArrayOutputStream();
+				
 				try {
 					// we search the good file from the zip
 					ZipEntry zipFileEntry = zipFile.getEntry(filenames.get(i));
@@ -119,7 +121,8 @@ public class ZFL_Loader {
 					byte[] bytes = out.toByteArray();
 
 					// we put the image in the ArrayList
-					images.add(ImageIO.read(new ByteArrayInputStream(bytes)));
+					BufferedImage image = ImageIO.read(new ByteArrayInputStream(bytes));
+					images.add(image);
 				} catch (Exception e) {
 					System.out.println("Cannot load "+filenames.get(i)+" in "+path+" !");
 				}

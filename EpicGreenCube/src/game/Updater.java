@@ -67,6 +67,7 @@ public class Updater {
 		ArrayList<ArrayList<String>> texts = ZFL_Loader.loadMultipleTexts(zip, textnames, "UTF-8");
 		// for each, we create a level object
 		for (int i = 0; i < Updater.LEVELS_NUMBER;i++) {
+			System.out.println(backs.get(i));
 			this.levels.add(new Level(backs.get(i),texts.get(i)));
 		}
 		
