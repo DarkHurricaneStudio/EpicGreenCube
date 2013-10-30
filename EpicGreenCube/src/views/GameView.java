@@ -44,7 +44,7 @@ public class GameView extends View {
 	/**
 	 * FPS goal
 	 */
-	private final static int FPS = 60;
+	private final static int FPS = 10;
 	
 	/**
 	 * Number of errors before yielding

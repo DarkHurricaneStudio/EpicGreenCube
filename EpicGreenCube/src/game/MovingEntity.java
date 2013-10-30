@@ -93,13 +93,13 @@ public abstract class MovingEntity extends Entity {
 			startPos +=this.width;
 
 		for (int i = 1; i <= Math.abs(this.speedX);i++) {
-			for (int j = (int) this.posY;j< (this.posY+this.height-3) ;j++) { // we delete 3px because of the slopes
+			for (int j = (int) this.posY;j< (this.posY+this.height) ;j++) {
 				
 				// we test if the position is in the cache (if not, there will be a bad, bad bug
 				if (startPos+i*direction >= 0 && startPos+i*direction <= back.getWidth() && j >= 0 && j <= back.getHeight()) {
 					
 					// we test this pixel.
-					int color = back.getRGB((int) startPos+(i+1)*direction,j);
+					int color = back.getRGB((int) startPos+i*direction,j);
 					// there is a collision ? bad
 					if (color == (new Color(0,0,0).getRGB())) {
 						// so this position cannot be joined, we get back to the previous line
