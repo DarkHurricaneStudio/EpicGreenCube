@@ -44,8 +44,8 @@ public class Triangle extends MovingEntity {
 		this.speedY *= Triangle.SPEED;
 
 		// we check if we hit wall
-		verticalWallCollision(u.getActualLevel().getBackground());
 		horizontalWallCollision(u.getActualLevel().getBackground());
+		verticalWallCollision(u.getActualLevel().getBackground());
 	}
 
 	public void turnToPlayer(Player p) {

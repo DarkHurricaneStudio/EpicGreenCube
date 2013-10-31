@@ -92,7 +92,7 @@ public abstract class MovingEntity extends Entity {
 		if (direction == 1)
 			startPos +=this.width;
 
-		for (int i = 1; i <= Math.abs(this.speedX);i++) {
+		for (int i = -1; i <= Math.abs(this.speedX);i++) {
 			for (int j = (int) this.posY;j< (this.posY+this.height) ;j++) {
 				
 				// we test if the position is in the cache (if not, there will be a bad, bad bug
@@ -103,7 +103,7 @@ public abstract class MovingEntity extends Entity {
 					// there is a collision ? bad
 					if (color == (new Color(0,0,0).getRGB())) {
 						// so this position cannot be joined, we get back to the previous line
-						this.posX += (i-1)*direction;
+						//this.posX += (i-1)*direction;
 
 						// and we have a collision, so we stop the speed
 						this.speedX = 0;
@@ -129,7 +129,7 @@ public abstract class MovingEntity extends Entity {
 		if (direction == 1)
 			startPos +=this.height;
 
-		for (int i = -3; i <= Math.abs(this.speedY);i++) {
+		for (int i = -1; i <= Math.abs(this.speedY);i++) {
 			for (int j = (int) this.posX; j<= (this.posX+this.width);j++) {
 
 				// we check each pixel. if there is a collision, we do the same thing for the X-axis
@@ -140,7 +140,7 @@ public abstract class MovingEntity extends Entity {
 					// there is a collision ? bad
 					if (color == (new Color(0,0,0).getRGB())) {
 						// so this position cannot be joined, we get back to the previous line
-						this.posY += (i)*direction;
+						//this.posY += (i-1)*direction;
 
 						// and we have a collision, so we stop the speed
 						this.speedY = 0;
