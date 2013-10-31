@@ -103,7 +103,7 @@ public abstract class MovingEntity extends Entity {
 					// there is a collision ? bad
 					if (color == (new Color(0,0,0).getRGB())) {
 						// so this position cannot be joined, we get back to the previous line
-						//this.posX += (i-1)*direction;
+						this.posX += (i-1)*direction;
 
 						// and we have a collision, so we stop the speed
 						this.speedX = 0;
@@ -140,7 +140,7 @@ public abstract class MovingEntity extends Entity {
 					// there is a collision ? bad
 					if (color == (new Color(0,0,0).getRGB())) {
 						// so this position cannot be joined, we get back to the previous line
-						//this.posY += (i-1)*direction;
+						this.posY += (i-1)*direction;
 
 						// and we have a collision, so we stop the speed
 						this.speedY = 0;

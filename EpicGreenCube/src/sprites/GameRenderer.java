@@ -70,6 +70,9 @@ public class GameRenderer {
 				// if the enemy is a triangle, we have to rotate it
 				if (u.getActualLevel().getEnemies().get(i).getClass().getName() == Triangle.class.getName()) {
 					sprite = u.getActualLevel().getEnemies().get(i).rotateSprite().filter(this.sprites.get(u.getActualLevel().getEnemies().get(i).getClass().getName()), null);
+					//draw the speed vector
+					//g.setColor(new Color(255,0,0));
+					//g.drawLine((int) (u.getActualLevel().getEnemies().get(i).getPosX()+u.getActualLevel().getEnemies().get(i).getWidth()/2), (int) (u.getActualLevel().getEnemies().get(i).getPosY()+u.getActualLevel().getEnemies().get(i).getHeight()/2),(int) (u.getActualLevel().getEnemies().get(i).getPosX()+u.getActualLevel().getEnemies().get(i).getWidth()/2+20*u.getActualLevel().getEnemies().get(i).getSpeedX()),(int) (u.getActualLevel().getEnemies().get(i).getPosY()+u.getActualLevel().getEnemies().get(i).getHeight()/2+20*u.getActualLevel().getEnemies().get(i).getSpeedY()));
 				} else {
 					sprite = this.sprites.get(u.getActualLevel().getEnemies().get(i).getClass().getName());
 				}
