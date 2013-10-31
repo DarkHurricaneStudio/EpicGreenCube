@@ -46,9 +46,8 @@ public class Triangle extends MovingEntity {
 		this.speedY *= Triangle.SPEED;
 
 		// we check if we hit wall
-		checkCollision(u.getActualLevel().getBackground());
-		//horizontalWallCollision(u.getActualLevel().getBackground());
-		//verticalWallCollision(u.getActualLevel().getBackground());
+		horizontalWallCollision(u.getActualLevel().getBackground());
+		verticalWallCollision(u.getActualLevel().getBackground());
 	}
 
 	public void turnToPlayer(Player p) {
@@ -83,13 +82,13 @@ public class Triangle extends MovingEntity {
 
 	}
 
-	public boolean checkCollision(BufferedImage back) {
+	public boolean horizontalWallCollision(BufferedImage back) {
 		// new system
 		// We check if there is a collision at the corner of the triangle
 		// we have to compute the position
-		for (int i = 0; i <360; i++) {
-			double ptX = this.posX + getWidth()/2 + + 3*this.speedX + Math.cos(i*Math.PI/360)*(this.getWidth()/2);
-			double ptY = this.posY + getHeight()/2 +  3*this.speedY + Math.sin(i*Math.PI/360)*(this.getHeight()/2);
+		for (int i = 0; i <=360; i++) {
+			double ptX = this.posX + getWidth()/2 + 2*this.speedX + Math.cos(i*Math.PI/360)*(this.getWidth()/2);
+			double ptY = this.posY + getHeight()/2 + Math.sin(i*Math.PI/360)*(this.getHeight()/2);
 
 			// we check only if the corner is on the screen (to prevent exception
 			if (ptX >= 0 && ptX <= back.getWidth() && ptY >= 0 && ptY <= back.getHeight()) {
@@ -103,6 +102,29 @@ public class Triangle extends MovingEntity {
 
 		// no wall ? We can move !
 		this.posX += this.speedX;
+
+		return false;
+	}
+	
+	public boolean verticalWallCollision(BufferedImage back) {
+		// new system
+		// We check if there is a collision at the corner of the triangle
+		// we have to compute the position
+		for (int i = 0; i <=360; i++) {
+			double ptX = this.posX + getWidth()/2 + Math.cos(i*Math.PI/360)*(this.getWidth()/2);
+			double ptY = this.posY + getHeight()/2  + 2*this.speedY+ Math.sin(i*Math.PI/360)*(this.getHeight()/2);
+
+			// we check only if the corner is on the screen (to prevent exception
+			if (ptX >= 0 && ptX <= back.getWidth() && ptY >= 0 && ptY <= back.getHeight()) {
+				int color  = back.getRGB((int) ptX, (int) ptY);
+				if (color == (new Color(0,0,0).getRGB())) {
+					// a wall ? we don't move
+					return true;
+				}
+			}
+		}
+
+		// no wall ? We can move !
 		this.posY += this.speedY;
 
 		return false;
