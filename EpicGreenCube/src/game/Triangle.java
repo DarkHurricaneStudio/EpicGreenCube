@@ -88,8 +88,8 @@ public class Triangle extends MovingEntity {
 		// We check if there is a collision at the corner of the triangle
 		// we have to compute the position
 		for (int i = 0; i <360; i++) {
-			double ptX = this.posX + getWidth()/2 + + this.speedX + Math.cos(i*Math.PI/360)*(this.getWidth()/2);
-			double ptY = this.posY + getHeight()/2 +  this.speedY + Math.sin(i*Math.PI/360)*(this.getHeight()/2);
+			double ptX = this.posX + getWidth()/2 + + 3*this.speedX + Math.cos(i*Math.PI/360)*(this.getWidth()/2);
+			double ptY = this.posY + getHeight()/2 +  3*this.speedY + Math.sin(i*Math.PI/360)*(this.getHeight()/2);
 
 			// we check only if the corner is on the screen (to prevent exception
 			if (ptX >= 0 && ptX <= back.getWidth() && ptY >= 0 && ptY <= back.getHeight()) {
