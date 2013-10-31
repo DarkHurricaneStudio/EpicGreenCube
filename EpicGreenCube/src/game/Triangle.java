@@ -86,10 +86,10 @@ public class Triangle extends MovingEntity {
 		// new system
 		// We check if there is a collision at the corner of the triangle
 		// we have to compute the position
-		for (int i = 0; i <=360; i++) {
-			double ptX = this.posX + getWidth()/2 + 2*this.speedX + Math.cos(i*Math.PI/360)*(this.getWidth()/2);
-			double ptY = this.posY + getHeight()/2 + Math.sin(i*Math.PI/360)*(this.getHeight()/2);
-
+		for (int i = 0; i <=360; i=i+5) {
+			double ptX = this.posX + getWidth()/2 + 2*this.speedX + Math.cos(2*i*Math.PI/360)*(this.getWidth()/2);
+			double ptY = this.posY + getHeight()/2 + Math.sin(2*i*Math.PI/360)*(this.getHeight()/2);
+			
 			// we check only if the corner is on the screen (to prevent exception
 			if (ptX >= 0 && ptX <= back.getWidth() && ptY >= 0 && ptY <= back.getHeight()) {
 				int color  = back.getRGB((int) ptX, (int) ptY);
@@ -110,9 +110,9 @@ public class Triangle extends MovingEntity {
 		// new system
 		// We check if there is a collision at the corner of the triangle
 		// we have to compute the position
-		for (int i = 0; i <=360; i++) {
-			double ptX = this.posX + getWidth()/2 + Math.cos(i*Math.PI/360)*(this.getWidth()/2);
-			double ptY = this.posY + getHeight()/2  + 2*this.speedY+ Math.sin(i*Math.PI/360)*(this.getHeight()/2);
+		for (int i = 0; i <=360; i=i+5) {
+			double ptX = this.posX + getWidth()/2 + Math.cos(2*i*Math.PI/360)*(this.getWidth()/2);
+			double ptY = this.posY + getHeight()/2  + 2*this.speedY+ Math.sin(2*i*Math.PI/360)*(this.getHeight()/2);
 
 			// we check only if the corner is on the screen (to prevent exception
 			if (ptX >= 0 && ptX <= back.getWidth() && ptY >= 0 && ptY <= back.getHeight()) {
