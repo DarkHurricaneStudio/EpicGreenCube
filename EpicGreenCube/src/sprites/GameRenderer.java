@@ -6,7 +6,6 @@ import game.Fragment;
 import game.Player;
 import game.Triangle;
 import game.Updater;
-import gui.MainPanel;
 
 import java.awt.Color;
 import java.awt.Font;
