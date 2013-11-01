@@ -2,6 +2,7 @@ package sprites;
 
 import game.Circle;
 import game.Exit;
+import game.Fragment;
 import game.Player;
 import game.Triangle;
 import game.Updater;
@@ -38,6 +39,10 @@ public class GameRenderer {
 		this.sprites.put(Exit.class.getName(), GameSprites.exitSprite());
 		this.sprites.put(Triangle.class.getName(), GameSprites.triangleSprite());
 		this.sprites.put(Circle.class.getName(), GameSprites.circleSprite());
+		// we create different sizes of fragments
+		for (int i = 2;i<8;i++) {
+			this.sprites.put(Fragment.class.getName()+i, GameSprites.fragmentSprite(i));
+		}
 
 		// we load the custom font
 		GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
@@ -85,6 +90,15 @@ public class GameRenderer {
 
 		// display the player
 		g.drawImage(this.sprites.get(Player.class.getName()), (int) u.getPlayer().getPosX(), (int) u.getPlayer().getPosY(), null);
+		
+		// we display the fragments
+		if (u.getFragments().size() != 0) {
+			for (int i = 0;i<u.getFragments().size();i++) {
+				g.drawImage(this.sprites.get(Fragment.class.getName()+u.getFragments().get(i).getSize()),(int)u.getFragments().get(i).getPosX(),(int) u.getFragments().get(i).getPosY(),null);
+			}
+		}
+		
+		
 		
 		g.setFont(GameRenderer.font);
 		g.setColor(Color.WHITE);

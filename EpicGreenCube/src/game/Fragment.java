@@ -21,6 +21,9 @@ public class Fragment extends MovingEntity {
 			this.speedX = 1;
 			this.speedY = 1;
 		}
+		
+		this.height = size;
+		this.width = size;
 			
 	}
 
@@ -42,6 +45,10 @@ public class Fragment extends MovingEntity {
 		} else {
 			return false;
 		}
+	}
+	
+	public int getSize() {
+		return this.width;
 	}
 
 }

@@ -1,7 +1,6 @@
 package game;
 
 import java.awt.Color;
-import java.awt.Point;
 import java.awt.image.AffineTransformOp;
 import java.awt.image.BufferedImage;
 

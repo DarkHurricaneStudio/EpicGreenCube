@@ -92,7 +92,17 @@ public class GameSprites {
 	 * @return
 	 */
 	public static BufferedImage fragmentSprite(int size) {
-		return null;
+
+			BufferedImage res = new BufferedImage(size, size, BufferedImage.TYPE_INT_ARGB);
+			Graphics g = res.getGraphics();
+
+			g.setColor(Color.green);
+			g.fillRect(0, 0, size , size );
+			g.setColor(Color.black);
+			g.drawRect(0, 0, size - 1, size - 1);
+
+			return res;
+
 	}
 	
 	/**

@@ -1,5 +1,7 @@
 package game;
 
+import gui.Main;
+
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
@@ -117,6 +119,10 @@ public class Updater {
 	public Player getPlayer() {
 		return this.player;
 	}
+	
+	public ArrayList<Fragment> getFragments() {
+		return this.fragments;
+	}
 
 	public void update() {
 		// We update the player
@@ -125,12 +131,30 @@ public class Updater {
 		for (int i = 0;i<this.levels.get(this.actualLevel).getEnemies().size();i++) {
 			this.levels.get(this.actualLevel).getEnemies().get(i).update(this);
 		}
+		//and the fragments (if there is some of it)
+		if (this.fragments.size() != 0) {
+			for (int i = 0;i<this.fragments.size();i++) {
+				if (this.fragments.get(i).getPosX() <= 0 || this.fragments.get(i).getPosX() >= Main.WIDTH || this.fragments.get(i).getPosY() <= 0 || this.fragments.get(i).getPosY() >= Main.HEIGHT) {
+					this.fragments.remove(i);
+				} else {
+				this.fragments.get(i).update(null); // no need of the updater in the update()
+				}
+			}
+		}
 		
 	}
 
 	public void die(){
 		this.deathCounter++;
 		this.getActualLevel().addDeath();
+		
+		// we had fragments		
+		for (int i = 0; i < 10;i++) {
+			int size = (int) (Math.random()*7+1);
+			this.fragments.add(i,new Fragment(this.player.getPosX()+this.player.getWidth()/2,this.player.getPosY()+this.player.getHeight()/2,size));
+		}
+		
+		
 		this.player.teleport(this.getActualLevel().getSpawnX(),this.getActualLevel().getSpawnY());
 		ArrayList<MovingEntity> entities = this.getActualLevel().getEnemies();
 		for (MovingEntity me:entities){
