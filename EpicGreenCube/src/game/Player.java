@@ -99,11 +99,39 @@ public class Player extends MovingEntity {
 	 */
 	public boolean reachedTheGoal(Entity goal) {
 		// Both the player and the goal are squares with the same exact size.
-		// we can, of course, test the collision by testing the fourth corner of the player
-		// and see if it's in the goal.
-		// but in my opinion, we can just test a distance between the two centers.
-		// this solution doesn't work for the corners but it's more simple
-		return hitEntity(goal);
+		// we test each corner of the player to see if one of its is in the goal
+
+		//bottom right corner
+		if (this.posX+this.width >= goal.getPosX() && this.posX+this.width <= goal.getPosX()+goal.getWidth()) {
+			if (this.posY+this.height >= goal.getPosY() && this.posY+this.height <= goal.getPosY()+goal.getHeight()) {
+				return true;
+			}
+		}
+
+		//top right corner
+		if (this.posX+this.width >= goal.getPosX() && this.posX+this.width <= goal.getPosX()+goal.getWidth()) {
+			if (this.posY >= goal.getPosY() && this.posY <= goal.getPosY()+goal.getHeight()) {
+				return true;
+			}
+		}
+		
+		//top left corner
+		if (this.posX >= goal.getPosX() && this.posX <= goal.getPosX()+goal.getWidth()) {
+			if (this.posY >= goal.getPosY() && this.posY <= goal.getPosY()+goal.getHeight()) {
+				return true;
+			}
+		}
+
+		//bottom left corner
+		if (this.posX >= goal.getPosX() && this.posX <= goal.getPosX()+goal.getWidth()) {
+			if (this.posY+this.height >= goal.getPosY() && this.posY+this.height <= goal.getPosY()+goal.getHeight()) {
+				return true;
+			}
+		}
+
+
+
+		return false;
 	}
 
 }
