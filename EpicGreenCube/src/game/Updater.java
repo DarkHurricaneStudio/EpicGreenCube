@@ -74,6 +74,7 @@ public class Updater {
 	
 	public void changeLevel(int newLvl) {
 		this.actualLevel = newLvl;
+		this.fragments = new ArrayList<Fragment>();
 		this.player.setPosX(this.levels.get(this.actualLevel).getSpawnX());
 		this.player.setPosY(this.levels.get(this.actualLevel).getSpawnY());
 	}
