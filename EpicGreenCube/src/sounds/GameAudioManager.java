@@ -4,12 +4,10 @@ import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 
-import javax.sound.sampled.AudioFormat;
-import javax.sound.sampled.AudioInputStream;
-import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 
+import javazoom.spi.mpeg.sampled.file.MpegAudioFileReader;
 import quentinc.audio.AudioManager;
 import quentinc.audio.Sample;
 import sounds.waitingLists.WaitingList;
@@ -39,28 +37,19 @@ public class GameAudioManager extends AudioManager {
 
 	// Methods
 	public void initializeLists() {
-		
+
 	}
 
 	public void initializeSamples() {
 		try {
-			
-			File file = new File("res/back.mp3");
-			AudioInputStream in = AudioSystem.getAudioInputStream(file);
-			AudioInputStream din = null;
-			AudioFormat baseFormat = in.getFormat();
-			AudioFormat decodedFormat = new AudioFormat(AudioFormat.Encoding.PCM_SIGNED, baseFormat.getSampleRate(), 16, baseFormat.getChannels(), baseFormat.getChannels(),baseFormat.getSampleRate(),false);
-			din = AudioSystem.getAudioInputStream(decodedFormat,in);
-			
-			this.samples.put(GameAudioManager.BACK_SAMPLE, this.loadSample(new File("res/back.mp3")));
-			
-			
+			MpegAudioFileReader reader = new MpegAudioFileReader();
+			this.samples.put(GameAudioManager.BACK_SAMPLE,mgr.loadSample(reader.getAudioInputStream(new File("res/back.mp3"))));
+
 			this.samples.put(GameAudioManager.DIE_SAMPLE, this.loadSample(new File("res/die.wav")));
 		} catch (UnsupportedAudioFileException e) {
 			System.out.println("Error, unsupported audio file !");
 			System.exit(2);
-		}
-		catch (IOException e){
+		} catch (IOException e) {
 			System.out.println("Error while reading the sound file");
 			System.exit(2);
 		}
