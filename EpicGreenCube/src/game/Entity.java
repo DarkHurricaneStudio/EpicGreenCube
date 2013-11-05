@@ -68,7 +68,7 @@ public abstract class Entity {
 	 * ABSTRACT - update the Entity
 	 * @param u the Updater
 	 */
-	public abstract void update(Updater u);
+	public abstract void update(Updater u) throws IndexOutOfBoundsException;
 	
 	public void setPosX(double x) {
 		this.posX = x;

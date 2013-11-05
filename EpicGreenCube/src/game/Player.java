@@ -28,7 +28,7 @@ public class Player extends MovingEntity {
 	
 
 	@Override
-	public void update(Updater u) {
+	public void update(Updater u) throws IndexOutOfBoundsException {
 		// First of all, we check the keyboard to change the speeds
 		checkKeyboard();
 		

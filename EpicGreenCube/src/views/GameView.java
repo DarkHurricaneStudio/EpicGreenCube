@@ -84,13 +84,15 @@ public class GameView extends View {
 			this.panel.setView(PauseView.class.getName());
 		}
 	
-		long now = System.nanoTime();
-		this.updater.update(); // Game is updated
-		long updateNow = System.nanoTime();
+		// update the game, return true if the game ended
+		if (this.updater.update()){
+			this.panel.setView(EndView.class.getName());
+		}
+
 		this.render(); // Save in a buffer
-		long renderNow = System.nanoTime();
+
 		this.paintScreen(); // Draw buffer to screen
-		long paintNow = System.nanoTime();
+
 		
 		// Time to sleep, period minus time used
 		sleepTime = (GameView.PERIOD - (System.nanoTime() - beforeTime));

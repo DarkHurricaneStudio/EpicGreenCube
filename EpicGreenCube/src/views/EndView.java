@@ -1,7 +1,9 @@
 package views;
 
 import gui.MainPanel;
+import handlers.KeyboardInputHandler;
 
+import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
 
@@ -19,6 +21,16 @@ public class EndView extends View {
 	 * Path of the background
 	 */
 	private final static String path = "res/end.png";
+	
+	/**
+	 * Frame Per Seconds
+	 */
+	private final static int FPS = 60;
+
+	/**
+	 * Value use for FPS limit
+	 */
+	private long beforeTime;
 
 	// Constructors
 	/**
@@ -41,7 +53,18 @@ public class EndView extends View {
 	}
 
 	public void run() {
+		beforeTime = System.currentTimeMillis();
 
+		// Paint the background
+		this.render();
+		this.paintScreen();
+		// Wait for the player to push enter
+		if (KeyboardInputHandler.keys[KeyEvent.VK_ENTER]) {
+			System.exit(0);
+		}
+
+		while (System.currentTimeMillis() - beforeTime < 1000 / EndView.FPS) {
+		}
 	}
 
 	public void stop() {

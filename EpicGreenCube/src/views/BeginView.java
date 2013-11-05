@@ -30,7 +30,7 @@ public class BeginView extends View {
 	/**
 	 * Frame Per Seconds
 	 */
-	private final static int FPS = 100;
+	private final static int FPS = 60;
 
 	/**
 	 * Value use for FPS limit
