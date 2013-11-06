@@ -6,6 +6,7 @@ import handlers.KeyboardInputHandler;
 import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.InputStream;
 
 import javax.imageio.ImageIO;
 
@@ -25,6 +26,7 @@ public class BeginView extends View {
 	/**
 	 * Path of the background
 	 */
+	//private final static String path = "/res/menu.png";
 	private final static String path = "res/menu.png";
 
 	/**
@@ -44,7 +46,11 @@ public class BeginView extends View {
 	public BeginView(MainPanel panel) {
 		super(panel);
 		try {
-			this.background = ImageIO.read(new File(BeginView.path));
+			/* Jar version
+			InputStream tmp = this.getClass().getResourceAsStream(path);
+			this.background = ImageIO.read(tmp);
+			*/
+			this.background = ImageIO.read(new File(path));
 		} catch (Exception e) {
 			System.out.println("The file " + BeginView.path + " cannot be open !");
 			e.printStackTrace();
@@ -54,7 +60,8 @@ public class BeginView extends View {
 
 	// Methods
 	public void start() {
-
+		// We start the background music
+		// GameAudioManager.request(GameAudioManager.BACK_SAMPLE, GameAudioManager.BACKGROUND_LIST);
 	}
 
 	public void run() {

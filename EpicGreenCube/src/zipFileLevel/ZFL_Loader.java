@@ -4,11 +4,13 @@ import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
+import java.util.zip.ZipInputStream;
 
 import javax.imageio.ImageIO;
 
@@ -91,8 +93,7 @@ public class ZFL_Loader {
 
 			// we load the Zip file
 			ZipFile zipFile = new ZipFile(path);
-
-
+			
 			// we work on each filename
 			for (int i=0; i < filenames.size();i++) {
 				

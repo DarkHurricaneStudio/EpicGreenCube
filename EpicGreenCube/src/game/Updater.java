@@ -49,6 +49,7 @@ public class Updater {
 
 		// the zip where are stored the levels
 		String zip = "res/levels.zip";
+		//String zip = "/res/levels.zip";
 
 		// the list of backgrounds
 		ArrayList<String> images = new ArrayList<String>();

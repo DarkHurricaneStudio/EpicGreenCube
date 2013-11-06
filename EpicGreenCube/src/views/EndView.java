@@ -6,6 +6,7 @@ import handlers.KeyboardInputHandler;
 import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.InputStream;
 
 import javax.imageio.ImageIO;
 
@@ -20,6 +21,7 @@ public class EndView extends View {
 	/**
 	 * Path of the background
 	 */
+	//private final static String path = "/res/end.png";
 	private final static String path = "res/end.png";
 	
 	/**
@@ -39,7 +41,11 @@ public class EndView extends View {
 	public EndView(MainPanel panel) {
 		super(panel);
 		try {
-			this.background = ImageIO.read(new File(EndView.path));
+			/* Jar version
+			InputStream tmp = this.getClass().getResourceAsStream(path);
+			this.background = ImageIO.read(tmp);
+			*/
+			this.background = ImageIO.read(new File(path));
 		} catch (Exception e) {
 			System.out.println("The file " + EndView.path + " cannot be open !");
 			e.printStackTrace();

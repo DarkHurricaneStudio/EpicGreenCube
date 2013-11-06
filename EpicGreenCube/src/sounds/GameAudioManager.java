@@ -62,9 +62,21 @@ public class GameAudioManager extends AudioManager {
 	}
 
 	public void updateSounds() {
+		// Requests
+		for (int i=0;i<GameAudioManager.requests.size();i++){
+			int sampleID = GameAudioManager.requests.get(i).getSampleID();
+			int listID = GameAudioManager.requests.get(i).getListID();
+			
+			this.lists.get(listID).addSample(this.samples.get(sampleID));
+		}
+		
+		// Lists' update
 		for (int i = 0; i < this.lists.size(); i++) {
 			this.lists.get(i).update(this);
 		}
+		
+		// Should be call (quentinc say it bitch)
+		this.update3D();
 	}
 
 	public static void request(int sampleID, int listID) {
@@ -85,7 +97,7 @@ class Request {
 		return this.sampleID;
 	}
 
-	public int getListId() {
+	public int getListID() {
 		return this.listID;
 	}
 
