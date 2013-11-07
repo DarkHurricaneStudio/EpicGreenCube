@@ -10,6 +10,9 @@ public class Node {
 	private double y;
 	private int id;
 	private ArrayList<Node>neighbors;
+	// used for Dijkstra algorithm :
+	private double distance;
+	private Node parent;
 
 	public Node(int id, double x, double y) {
 		this.x = x;
@@ -48,5 +51,21 @@ public class Node {
 	
 	public ArrayList<Node> getNeighbors() {
 		return this.neighbors;
+	}
+	
+	public void setDistance(double distance) {
+		this.distance = distance;
+	}
+	
+	public void setParent(Node parent) {
+		this.parent = parent;
+	}
+	
+	public double getDistance() {
+		return this.distance;
+	}
+	
+	public Node getParent() {
+		return this.parent;
 	}
 }
