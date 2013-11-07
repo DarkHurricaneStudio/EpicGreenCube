@@ -6,6 +6,9 @@ import java.awt.image.AffineTransformOp;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
+import AI.Dijkstra;
+import AI.Node;
+
 
 import sprites.GameSprites;
 
@@ -136,18 +139,24 @@ public class Triangle extends MovingEntity {
 	public void updateAI(Updater u) {
 		// we search the nearest Node to the triangle
 		double distance = 99999; // we set a very far distance to check the nearest
+		Node tNearest = null;
 		for (Node n:u.getActualLevel().getWaypoints()) {
 			if (n.distanceTo(this) <= distance) {
 				distance = n.distanceTo(this);
-				this.waypoints.add(0, n);
+				tNearest = n;
 			}
 		}
-		// now we check the next ndoes to join
-		Dijkstra(u.getPlayer().getPosX(),u.getPlayer().getPosY());
-	}
-	
-	public void Dijkstra(double goalX, double goalY) {
-		//TODO
+		// now we check the nearest node to the player
+		distance = 99999; // we set a very far distance to check the nearest
+		Node pNearest = null;
+		for (Node n:u.getActualLevel().getWaypoints()) {
+			if (n.distanceTo(this) <= distance) {
+				distance = n.distanceTo(u.getPlayer());
+				pNearest = n;
+			}
+		}
+		this.waypoints = Dijkstra.computePath(tNearest, pNearest);
 	}
 
+	
 }

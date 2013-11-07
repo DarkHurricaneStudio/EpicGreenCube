@@ -1,4 +1,6 @@
-package game;
+package AI;
+
+import game.Entity;
 
 import java.util.ArrayList;
 
@@ -7,17 +9,17 @@ public class Node {
 	private double x;
 	private double y;
 	private int id;
-	private ArrayList<Node>neighbours;
+	private ArrayList<Node>neighbors;
 
 	public Node(int id, double x, double y) {
 		this.x = x;
 		this.y = y;
 		this.id = id;
-		this.neighbours = new ArrayList<Node>();
+		this.neighbors = new ArrayList<Node>();
 	}
 	
 	public void addNeighbour(Node n) {
-		this.neighbours.add(n);
+		this.neighbors.add(n);
 	}
 	
 	public double distanceTo(double nodeX, double ndoeY) {
@@ -42,5 +44,9 @@ public class Node {
 	
 	public int getID() {
 		return this.id;
+	}
+	
+	public ArrayList<Node> getNeighbors() {
+		return this.neighbors;
 	}
 }
