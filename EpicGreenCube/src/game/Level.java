@@ -21,6 +21,7 @@ public class Level {
 	private double spawnX;
 	private double spawnY;
 	private int deathCounter;
+	private ArrayList<Node>waypoints;
 	
 	/**
 	 * Load and create a Level from a ZIP with only a number as param
@@ -32,6 +33,7 @@ public class Level {
 		this.background = image;
 		this.messages = new ArrayList<String>();
 		this.enemies = new ArrayList<MovingEntity>();
+		this.waypoints = new ArrayList<Node>();
 		// and we do the same for the text file
 		loadTextLevel(textFile);
 		
@@ -80,6 +82,15 @@ public class Level {
 					this.messages.add(parameters[1]);
 					break;
 					
+				case "Node":
+					// TODO !
+					this.waypoints.add(Integer.parseInt(parameters[1]),new Node(Integer.parseInt(parameters[1]),Double.parseDouble(parameters[2]),Double.parseDouble(parameters[3])));
+					break;
+					
+				case "NodeLinks":
+					// TODO !
+					break;
+				
 				default:
 					//something doesn't start with the previous String ? There is a problem somewhere !
 					System.out.println("Error with a beginning of a new line : "+parameters[0]);
@@ -131,6 +142,9 @@ public class Level {
 		}
 		return this.messages.get(i);
 	}
-
+	
+	public ArrayList<Node> getWaypoints() {
+		return this.waypoints;
+	}
 
 }

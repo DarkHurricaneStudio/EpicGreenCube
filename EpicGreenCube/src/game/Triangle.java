@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.geom.AffineTransform;
 import java.awt.image.AffineTransformOp;
 import java.awt.image.BufferedImage;
+import java.util.ArrayList;
 
 
 import sprites.GameSprites;
@@ -18,6 +19,7 @@ public class Triangle extends MovingEntity {
 
 	//fields
 	public final static double SPEED = 1.5;
+	private ArrayList<Node> waypoints;
 	
 
 	
@@ -34,13 +36,14 @@ public class Triangle extends MovingEntity {
 		super(spawnX, spawnY);
 		this.width = GameSprites.TRIANGLE_WIDTH;
 		this.height = GameSprites.TRIANGLE_HEIGHT;
+		this.waypoints = new ArrayList<Node>();
 
 	}
 
 	@Override
 	public void update(Updater u) {
 		// TODO : what to do ?
-		this.turnToPlayer(u.getPlayer());
+		this.turnToDirection();
 		//we transform the speed with the real values
 		this.speedX *= Triangle.SPEED;
 		this.speedY *= Triangle.SPEED;
@@ -50,8 +53,8 @@ public class Triangle extends MovingEntity {
 		verticalWallCollision(u.getActualLevel().getBackground());
 	}
 
-	public void turnToPlayer(Player p) {
-		turnToPoint(p.getPosX(), p.getPosY());
+	public void turnToDirection() {
+		turnToPoint(waypoints.get(0).getX(),waypoints.get(0).getY());
 	}
 	
 	public AffineTransformOp rotateSprite() {
@@ -128,6 +131,23 @@ public class Triangle extends MovingEntity {
 		this.posY += this.speedY;
 
 		return false;
+	}
+	
+	public void updateAI(Updater u) {
+		// we search the nearest Node to the triangle
+		double distance = 99999; // we set a very far distance to check the nearest
+		for (Node n:u.getActualLevel().getWaypoints()) {
+			if (n.distanceTo(this) <= distance) {
+				distance = n.distanceTo(this);
+				this.waypoints.add(0, n);
+			}
+		}
+		// now we check the next ndoes to join
+		Dijkstra(u.getPlayer().getPosX(),u.getPlayer().getPosY());
+	}
+	
+	public void Dijkstra(double goalX, double goalY) {
+		//TODO
 	}
 
 }
