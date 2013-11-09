@@ -6,8 +6,10 @@ import java.awt.Dimension;
 import java.awt.event.KeyListener;
 import java.util.HashMap;
 
+import javax.sound.sampled.LineUnavailableException;
 import javax.swing.JPanel;
 
+import sounds.GameAudioManager;
 import views.BeginView;
 import views.EndView;
 import views.GameView;
@@ -32,6 +34,11 @@ public class MainPanel extends JPanel {
 	 */
 	private View currentView;
 
+	/**
+	 * Audio Manager
+	 */
+	private GameAudioManager gam;
+	
 	// Constructors
 	/**
 	 * Initialize the panel and create the views
@@ -41,6 +48,14 @@ public class MainPanel extends JPanel {
 		this.createViews();
 
 		this.addKeyListener(new KeyboardInputHandler());
+		
+		try {
+			this.gam = new GameAudioManager();
+		} catch (LineUnavailableException e) {
+			System.out.println("Error while creating the audio manager");
+			e.printStackTrace();
+			System.exit(3);
+		}
 
 	}
 
@@ -68,5 +83,9 @@ public class MainPanel extends JPanel {
 		}
 		this.currentView = this.views.get(s);
 		this.currentView.setActive(true);
+	}
+	
+	public GameAudioManager getGam(){
+		return this.gam;
 	}
 }

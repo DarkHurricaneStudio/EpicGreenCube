@@ -12,6 +12,7 @@ import javazoom.spi.mpeg.sampled.file.MpegAudioFileReader;
 import quentinc.audio.AudioManager;
 import quentinc.audio.Sample;
 import sounds.waitingLists.LoopingWaitingList;
+import sounds.waitingLists.MultiSoundWaitingList;
 import sounds.waitingLists.WaitingList;
 
 public class GameAudioManager extends AudioManager {
@@ -25,7 +26,7 @@ public class GameAudioManager extends AudioManager {
 	public final static int BACK_SAMPLE = 0;
 	public final static int DIE_SAMPLE = 1;
 
-	private static ArrayList<Request> requests;
+	private static ArrayList<Request> requests = new ArrayList<>();
 
 	// Constructors
 	/**
@@ -44,14 +45,15 @@ public class GameAudioManager extends AudioManager {
 	// Methods
 	public void initializeLists() {
 		this.lists.put(GameAudioManager.BACKGROUND_LIST, new LoopingWaitingList());
+		this.lists.put(GameAudioManager.SFX_LIST, new MultiSoundWaitingList());
 	}
 
 	public void initializeSamples() {
 		try {
-			MpegAudioFileReader reader = new MpegAudioFileReader();
-			this.samples.put(GameAudioManager.BACK_SAMPLE, mgr.loadSample(reader.getAudioInputStream(new File("res/back.mp3"))));
+			//MpegAudioFileReader reader = new MpegAudioFileReader();
+			//this.samples.put(GameAudioManager.BACK_SAMPLE, mgr.loadSample(reader.getAudioInputStream(new File("res/back.mp3"))));
 
-			this.samples.put(GameAudioManager.DIE_SAMPLE, this.loadSample(new File("res/die.wav")));
+			this.samples.put(GameAudioManager.DIE_SAMPLE, this.loadSample(new File("res/death.wav")));
 		} catch (UnsupportedAudioFileException e) {
 			System.out.println("Error, unsupported audio file !");
 			System.exit(2);
@@ -69,6 +71,7 @@ public class GameAudioManager extends AudioManager {
 			
 			this.lists.get(listID).addSample(this.samples.get(sampleID));
 		}
+		GameAudioManager.requests.clear();
 		
 		// Lists' update
 		for (int i = 0; i < this.lists.size(); i++) {

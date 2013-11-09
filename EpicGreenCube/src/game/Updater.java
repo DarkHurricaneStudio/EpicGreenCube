@@ -5,6 +5,8 @@ import gui.Main;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
+import sounds.GameAudioManager;
+
 import zipFileLevel.ZFL_Loader;
 
 /**
@@ -170,5 +172,7 @@ public class Updater {
 		for (MovingEntity me : entities) {
 			me.reset();
 		}
+		
+		GameAudioManager.request(GameAudioManager.DIE_SAMPLE, GameAudioManager.SFX_LIST);
 	}
 }
