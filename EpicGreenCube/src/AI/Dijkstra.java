@@ -9,6 +9,7 @@ public class Dijkstra {
 		ArrayList<Node> openList = new ArrayList<Node>();
 		ArrayList<Node> closedList = new ArrayList<Node>();
 		ArrayList<Node> path = new ArrayList<Node>();
+		ArrayList<Node> inversePath = new ArrayList<Node>();
 		boolean end = false;
 		
 		//we add the start as the first position
@@ -21,12 +22,11 @@ public class Dijkstra {
 			openList.add(n);
 			
 		}
-		
-		// now that we have the base, we check if there is no more ndoes to check or we have finally succed to find the goal
+		Node node = new Node(0,0,0);
+		node.setDistance(99999999);		
+		// now that we have the base, we check if there is no more nodes to check or we have finally succeed to find the goal
 		while (openList.size() != 0 || end) {
 			// we take the nearest node from the open list and had it to the close list
-			Node node = new Node(0,0,0);
-			node.setDistance(99999999);
 			for(Node n:openList) {
 				if (n.getDistance() <= node.getDistance())
 					node = n;
@@ -53,7 +53,19 @@ public class Dijkstra {
 				}
 			}
 		}
+		// we successfully join the goal
+		// we now have to retrieve all the nodes
+		int pos = 0;
+		while (node.getParent() != null) {
+			inversePath.add(pos,node);
+			pos++;
+			node = node.getParent();
+		}
+		// and we inverse it
+		for (int i=0; i <inversePath.size();i++) {
+			path.add(inversePath.size()-i,inversePath.get(i));
+		}
 		
-		return null;
+		return path;
 	}
 }

@@ -47,6 +47,11 @@ public class Triangle extends MovingEntity {
 	public void update(Updater u) {
 		// TODO : what to do ?
 		this.turnToDirection();
+		//debug
+		double t1 = System.nanoTime();
+		updateAI(u);
+		double t2 = (System.nanoTime()-t1)/1000000;
+		System.out.println(t2);
 		//we transform the speed with the real values
 		this.speedX *= Triangle.SPEED;
 		this.speedY *= Triangle.SPEED;
@@ -137,26 +142,33 @@ public class Triangle extends MovingEntity {
 	}
 	
 	public void updateAI(Updater u) {
-		// we search the nearest Node to the triangle
-		double distance = 99999; // we set a very far distance to check the nearest
-		Node tNearest = null;
-		for (Node n:u.getActualLevel().getWaypoints()) {
-			if (n.distanceTo(this) <= distance) {
-				distance = n.distanceTo(this);
-				tNearest = n;
+		// Do the level have a waypoint graph ?
+		if (u.getActualLevel().getWaypoints().size() != 0) {
+			// we search the nearest Node to the triangle
+			double distance = 99999; // we set a very far distance to check the nearest
+			Node tNearest = null;
+			for (Node n:u.getActualLevel().getWaypoints()) {
+				if (n.distanceTo(this) <= distance) {
+					distance = n.distanceTo(this);
+					tNearest = n;
+				}
 			}
-		}
-		// now we check the nearest node to the player
-		distance = 99999; // we set a very far distance to check the nearest
-		Node pNearest = null;
-		for (Node n:u.getActualLevel().getWaypoints()) {
-			if (n.distanceTo(this) <= distance) {
-				distance = n.distanceTo(u.getPlayer());
-				pNearest = n;
+			// now we check the nearest node to the player
+			distance = 99999; // we set a very far distance to check the nearest
+			Node pNearest = null;
+			for (Node n:u.getActualLevel().getWaypoints()) {
+				if (n.distanceTo(this) <= distance) {
+					distance = n.distanceTo(u.getPlayer());
+					pNearest = n;
+				}
 			}
+			this.waypoints = Dijkstra.computePath(tNearest, pNearest);
 		}
-		this.waypoints = Dijkstra.computePath(tNearest, pNearest);
+		else {
+			// there is no waypoint, we use the most basic AI that was ever created...
+			this.waypoints.add(0,new Node(0,u.getPlayer().getPosX(),u.getPlayer().getPosY()));
+		}
+
 	}
 
-	
 }

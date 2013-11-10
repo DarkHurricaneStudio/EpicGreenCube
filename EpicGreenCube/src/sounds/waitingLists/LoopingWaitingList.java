@@ -16,7 +16,7 @@ public class LoopingWaitingList extends WaitingList {
 	
 	// Methods
 	public void update(AudioManager am){
-		System.out.println((System.nanoTime() - this.startTime)/1000000000+" / "+this.sampleLength);
+		//System.out.println((System.nanoTime() - this.startTime)/1000000000+" / "+this.sampleLength);
 		if ((System.nanoTime() - this.startTime)/1000000000 < this.sampleLength){
 			return;
 		}
