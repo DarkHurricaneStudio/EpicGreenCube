@@ -5,6 +5,9 @@ import quentinc.audio.AudioManager;
 public class LoopingWaitingList extends WaitingList {
 
 	// Fields
+	private double sampleLength;
+	private int currentIndex;
+	private double startTime;
 	
 	// Constructors
 	public LoopingWaitingList(){
@@ -13,12 +16,16 @@ public class LoopingWaitingList extends WaitingList {
 	
 	// Methods
 	public void update(AudioManager am){
-		if (am.getPositionInFrames() < am.getDurationInFrames()-1){
+		System.out.println((System.nanoTime() - this.startTime)/1000000000+" / "+this.sampleLength);
+		if ((System.nanoTime() - this.startTime)/1000000000 < this.sampleLength){
 			return;
 		}
 		else {
 			try {
-				am.play(this.list.get(this.getIndex()));
+				this.currentIndex = this.getIndex();
+				this.sampleLength = this.list.get(this.currentIndex).getDuration();
+				this.startTime = System.nanoTime();
+				am.play(this.list.get(this.currentIndex));
 			}
 			catch (Exception e){
 				

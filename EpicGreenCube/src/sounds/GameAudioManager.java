@@ -50,15 +50,17 @@ public class GameAudioManager extends AudioManager {
 
 	public void initializeSamples() {
 		try {
-			//MpegAudioFileReader reader = new MpegAudioFileReader();
-			//this.samples.put(GameAudioManager.BACK_SAMPLE, mgr.loadSample(reader.getAudioInputStream(new File("res/back.mp3"))));
-
+			MpegAudioFileReader reader = new MpegAudioFileReader();
+			this.samples.put(GameAudioManager.BACK_SAMPLE, this.loadSample(reader.getAudioInputStream(new File("res/back.mp3"))));
+			
 			this.samples.put(GameAudioManager.DIE_SAMPLE, this.loadSample(new File("res/death.wav")));
 		} catch (UnsupportedAudioFileException e) {
 			System.out.println("Error, unsupported audio file !");
+			e.printStackTrace();
 			System.exit(2);
 		} catch (IOException e) {
 			System.out.println("Error while reading the sound file");
+			e.printStackTrace();
 			System.exit(2);
 		}
 	}

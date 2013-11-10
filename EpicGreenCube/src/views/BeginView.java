@@ -6,9 +6,10 @@ import handlers.KeyboardInputHandler;
 import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
-import java.io.InputStream;
 
 import javax.imageio.ImageIO;
+
+import sounds.GameAudioManager;
 
 /**
  * View at the beginning of the game.
@@ -61,7 +62,7 @@ public class BeginView extends View {
 	// Methods
 	public void start() {
 		// We start the background music
-		// GameAudioManager.request(GameAudioManager.BACK_SAMPLE, GameAudioManager.BACKGROUND_LIST);
+		GameAudioManager.request(GameAudioManager.BACK_SAMPLE, GameAudioManager.BACKGROUND_LIST);
 	}
 
 	public void run() {
