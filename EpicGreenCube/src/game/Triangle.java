@@ -45,13 +45,16 @@ public class Triangle extends MovingEntity {
 
 	@Override
 	public void update(Updater u) {
-		// TODO : what to do ?
-		this.turnToDirection();
+		
 		//debug
 		double t1 = System.nanoTime();
 		updateAI(u);
 		double t2 = (System.nanoTime()-t1)/1000000;
 		System.out.println(t2);
+		
+		this.turnToDirection();
+		
+		
 		//we transform the speed with the real values
 		this.speedX *= Triangle.SPEED;
 		this.speedY *= Triangle.SPEED;
