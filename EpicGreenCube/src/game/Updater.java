@@ -151,8 +151,8 @@ public class Updater {
 				}
 			}
 		} catch (IndexOutOfBoundsException e) {
-			System.out.println(e.getMessage());
-			this.endGame = true;
+		//	System.out.println(e.getLocalizedMessage());
+			//this.endGame = true;
 		}
 		return this.endGame;
 

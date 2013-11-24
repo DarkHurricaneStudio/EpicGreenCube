@@ -23,6 +23,7 @@ public class Triangle extends MovingEntity {
 	//fields
 	public final static double SPEED = 1.5;
 	private ArrayList<Node> waypoints;
+	private Node playerNode; // used for the AI
 	
 
 	
@@ -40,17 +41,14 @@ public class Triangle extends MovingEntity {
 		this.width = GameSprites.TRIANGLE_WIDTH;
 		this.height = GameSprites.TRIANGLE_HEIGHT;
 		this.waypoints = new ArrayList<Node>();
-
+		this.playerNode = null;
 	}
 
 	@Override
 	public void update(Updater u) {
 		
 		//debug
-		double t1 = System.nanoTime();
 		updateAI(u);
-		double t2 = (System.nanoTime()-t1)/1000000;
-		System.out.println(t2);
 		
 		this.turnToDirection();
 		
@@ -143,12 +141,24 @@ public class Triangle extends MovingEntity {
 
 		return false;
 	}
-	
+
 	public void updateAI(Updater u) {
 		// Do the level have a waypoint graph ?
 		if (u.getActualLevel().getWaypoints().size() != 0) {
-			// we search the nearest Node to the triangle
+
+			// we update the path
+			// now we check the nearest node to the player
 			double distance = 99999; // we set a very far distance to check the nearest
+			Node pNearest = null;
+			for (Node n:u.getActualLevel().getWaypoints()) {
+				if (n.distanceTo(u.getPlayer()) <= distance) {
+					distance = n.distanceTo(u.getPlayer());
+					pNearest = n;
+				}
+			}
+			
+			// we search the nearest Node to the triangle
+			distance = 99999; // we set a very far distance to check the nearest
 			Node tNearest = null;
 			for (Node n:u.getActualLevel().getWaypoints()) {
 				if (n.distanceTo(this) <= distance) {
@@ -156,20 +166,40 @@ public class Triangle extends MovingEntity {
 					tNearest = n;
 				}
 			}
-			// now we check the nearest node to the player
-			distance = 99999; // we set a very far distance to check the nearest
-			Node pNearest = null;
-			for (Node n:u.getActualLevel().getWaypoints()) {
-				if (n.distanceTo(this) <= distance) {
-					distance = n.distanceTo(u.getPlayer());
-					pNearest = n;
+			
+			// if the player has moved, we recompute the path
+			if (this.playerNode == null || this.playerNode.getID() != pNearest.getID()) {
+				
+				// we update the nearest position of the player
+				System.out.println("dodo");
+				this.playerNode = pNearest;
+				
+				this.waypoints = new ArrayList<Node>();
+
+				if (tNearest != pNearest) {
+					this.waypoints = Dijkstra.computePath(u, tNearest, pNearest);
 				}
+				// and we had the player position at the end
+				this.waypoints.add(this.waypoints.size(),new Node(99,u.getPlayer().getPosX(),u.getPlayer().getPosY()));
+
 			}
-			this.waypoints = Dijkstra.computePath(tNearest, pNearest);
+
+			// if we are near the same node, we go directly to the player
+			if (pNearest == tNearest) {
+				this.waypoints.add(0,new Node(99,u.getPlayer().getPosX(),u.getPlayer().getPosY())); 
+				}
+
+			// we check if we join a waypoint
+			if (Math.sqrt((this.posX-this.waypoints.get(0).getX())*(this.posX-this.waypoints.get(0).getX()) + (this.posY-this.waypoints.get(0).getY())*(this.posY-this.waypoints.get(0).getY())) <= 2) {
+				System.out.println("Before:"+waypoints.get(0));
+				this.waypoints.remove(this.waypoints.get(0));
+				System.out.println("After:"+waypoints.get(0));
+			}
+
 		}
 		else {
 			// there is no waypoint, we use the most basic AI that was ever created...
-			this.waypoints.add(0,new Node(0,u.getPlayer().getPosX(),u.getPlayer().getPosY()));
+			this.waypoints.add(0,new Node(99,u.getPlayer().getPosX(),u.getPlayer().getPosY()));
 		}
 
 	}

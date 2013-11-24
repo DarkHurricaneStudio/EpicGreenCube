@@ -85,12 +85,13 @@ public class Level {
 					break;
 					
 				case "Node":
-					// TODO !
 					this.waypoints.add(Integer.parseInt(parameters[1]),new Node(Integer.parseInt(parameters[1]),Double.parseDouble(parameters[2]),Double.parseDouble(parameters[3])));
 					break;
 					
 				case "NodeLinks":
-					// TODO !
+					for (int j=2;j<parameters.length;j++){
+						this.waypoints.get(Integer.parseInt(parameters[1])).addNeighbor(this.waypoints.get(Integer.parseInt(parameters[j])));
+					}
 					break;
 				
 				default:

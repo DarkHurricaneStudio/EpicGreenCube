@@ -19,9 +19,10 @@ public class Node {
 		this.y = y;
 		this.id = id;
 		this.neighbors = new ArrayList<Node>();
+		this.parent = null;
 	}
 	
-	public void addNeighbour(Node n) {
+	public void addNeighbor(Node n) {
 		this.neighbors.add(n);
 	}
 	
@@ -67,5 +68,14 @@ public class Node {
 	
 	public Node getParent() {
 		return this.parent;
+	}
+	
+	public String toString() {
+		
+		String nei = "Neighbor : s";
+		for(Node n:neighbors) {
+			nei += n.getID() + ";";
+		}
+		return ("Node "+id+" | X : "+x+" | Y : "+y+" | "+nei);
 	}
 }
