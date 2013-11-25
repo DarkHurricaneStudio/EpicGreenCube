@@ -145,7 +145,9 @@ public class Triangle extends MovingEntity {
 	public void updateAI(Updater u) {
 		// Do the level have a waypoint graph ?
 		if (u.getActualLevel().getWaypoints().size() != 0) {
-
+			
+			int objectiveNode = -1;
+			
 			// we update the path
 			// now we check the nearest node to the player
 			double distance = 99999; // we set a very far distance to check the nearest
@@ -174,13 +176,19 @@ public class Triangle extends MovingEntity {
 				System.out.println("dodo");
 				this.playerNode = pNearest;
 				
+				
 				this.waypoints = new ArrayList<Node>();
 
 				if (tNearest != pNearest) {
 					this.waypoints = Dijkstra.computePath(u, tNearest, pNearest);
+					// the path folow the same first node ? we delete the first to have a good path
+					if (this.waypoints.get(1).getID() == objectiveNode) {
+						this.waypoints.remove(0);
+					}
 				}
 				// and we had the player position at the end
 				this.waypoints.add(this.waypoints.size(),new Node(99,u.getPlayer().getPosX(),u.getPlayer().getPosY()));
+				objectiveNode = this.waypoints.get(0).getID();
 
 			}
 
