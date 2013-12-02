@@ -27,8 +27,7 @@ public class BeginView extends View {
 	/**
 	 * Path of the background
 	 */
-	//private final static String path = "/res/menu.png";
-	private final static String path = "res/menu.png";
+	private final static String path = "\\res\\menu.png";
 
 	/**
 	 * Frame Per Seconds
@@ -47,11 +46,7 @@ public class BeginView extends View {
 	public BeginView(MainPanel panel) {
 		super(panel);
 		try {
-			/* Jar version
-			InputStream tmp = this.getClass().getResourceAsStream(path);
-			this.background = ImageIO.read(tmp);
-			*/
-			this.background = ImageIO.read(new File(path));
+			this.background = ImageIO.read(new File(System.getProperty("user.dir")+path));
 		} catch (Exception e) {
 			System.out.println("The file " + BeginView.path + " cannot be open !");
 			e.printStackTrace();

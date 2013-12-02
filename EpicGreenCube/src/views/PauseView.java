@@ -25,7 +25,7 @@ public class PauseView extends View {
 	/**
 	 * Path of the background image
 	 */
-	private final static String path = "res/pause.png";
+	private final static String path = "\\res\\pause.png";
 
 	// Constructors
 	/**
@@ -34,7 +34,7 @@ public class PauseView extends View {
 	public PauseView(MainPanel panel) {
 		super(panel);
 		try {
-			this.background = ImageIO.read(new File(PauseView.path));
+			this.background = ImageIO.read(new File(System.getProperty("user.dir")+PauseView.path));
 		} catch (Exception e) {
 			System.out.println("The file " + PauseView.path + " cannot be open !");
 			e.printStackTrace();
@@ -51,8 +51,10 @@ public class PauseView extends View {
 		if (KeyboardInputHandler.keys[KeyEvent.VK_P] || KeyboardInputHandler.keys[KeyEvent.VK_ESCAPE]){
 			this.panel.setView(GameView.class.getName());
 		}
+		this.render();
+		this.paintScreen();
 		try {
-			Thread.sleep(30);
+			Thread.sleep(15);
 		} catch (Exception e) {
 		}
 	}

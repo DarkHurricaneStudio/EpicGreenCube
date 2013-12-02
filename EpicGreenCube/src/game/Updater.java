@@ -50,8 +50,7 @@ public class Updater {
 	public void loadLevels() {
 
 		// the zip where are stored the levels
-		String zip = "res/levels.zip";
-		//String zip = "/res/levels.zip";
+		String zip = System.getProperty("user.dir")+"\\res\\levels.zip";
 
 		// the list of backgrounds
 		ArrayList<String> images = new ArrayList<String>();
