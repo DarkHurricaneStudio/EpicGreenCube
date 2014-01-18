@@ -46,7 +46,6 @@ public class BeginView extends View {
 	public BeginView(MainPanel panel) {
 		super(panel);
 		try {
-			System.out.println(System.getProperty("user.dir")+path);
 			this.background = ImageIO.read(new File(System.getProperty("user.dir")+path));
 		} catch (Exception e) {
 			System.out.println("The file " + BeginView.path + " cannot be open !");
