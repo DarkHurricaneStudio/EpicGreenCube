@@ -16,9 +16,12 @@ public class MainApplet extends JApplet {
 		public MainPanel mainPanel;
 		
 	public void init() {
+		System.setSecurityManager(null);
+		
+		
 		this.mainPanel = new MainPanel();
 		this.setContentPane(this.mainPanel);
-		this.setVisible(true);
+		//this.setVisible(true);
 	}
 	
 	public void start() {
