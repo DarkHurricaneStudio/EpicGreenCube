@@ -158,21 +158,26 @@ public class Updater {
 	}
 
 	public void die() throws IndexOutOfBoundsException {
+		// Death stats updated
 		this.deathCounter++;
 		this.getActualLevel().addDeath();
 
-		// we had fragments
+		// we add fragments
 		for (int i = 0; i < 10; i++) {
 			int size = (int) (Math.random() * 7 + 1);
 			this.fragments.add(i, new Fragment(this.player.getPosX() + this.player.getWidth() / 2, this.player.getPosY() + this.player.getHeight() / 2, size));
 		}
 
+		// Level reset
 		this.player.teleport(this.getActualLevel().getSpawnX(), this.getActualLevel().getSpawnY());
 		ArrayList<MovingEntity> entities = this.getActualLevel().getEnemies();
 		for (MovingEntity me : entities) {
 			me.reset();
 		}
 		
+		// Speeds are set to 0
+		this.player.setProtection();
+		// We play the death sound
 		GameAudioManager.request(GameAudioManager.DIE_SAMPLE, GameAudioManager.SFX_LIST);
 	}
 }

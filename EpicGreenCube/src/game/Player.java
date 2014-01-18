@@ -17,7 +17,7 @@ public class Player extends MovingEntity {
 	
 	//static fields
 	public final static double SPEED = 2.; // maximum speed of the player
-	
+	private boolean respawnProtection;
 	
 
 	public Player(double spawnX, double spawnY) {
@@ -31,6 +31,11 @@ public class Player extends MovingEntity {
 	public void update(Updater u) throws IndexOutOfBoundsException {
 		// First of all, we check the keyboard to change the speeds
 		checkKeyboard();
+		
+		if (this.respawnProtection){
+			this.speedX = 0;
+			this.speedY = 0;
+		}
 		
 		// we check if we hit the exit
 		if(reachedTheGoal(u.getActualLevel().getExit())) {
@@ -53,10 +58,10 @@ public class Player extends MovingEntity {
 	 */
 	public void checkKeyboard() {
 		// we check if one or more keys are pressed
-		if (KeyboardInputHandler.keys[KeyEvent.VK_UP]) {
+		if (KeyboardInputHandler.keys[KeyEvent.VK_UP] || KeyboardInputHandler.keys[KeyEvent.VK_Z]) {
 			// To the top !
 			this.speedY = - Player.SPEED;
-		} else if (KeyboardInputHandler.keys[KeyEvent.VK_DOWN]) {
+		} else if (KeyboardInputHandler.keys[KeyEvent.VK_DOWN]|| KeyboardInputHandler.keys[KeyEvent.VK_S]) {
 			// nah, go to the bottom
 			this.speedY =Player.SPEED;
 		} else {
@@ -64,14 +69,18 @@ public class Player extends MovingEntity {
 		}
 		
 		// now we check right and left
-		if (KeyboardInputHandler.keys[KeyEvent.VK_LEFT]) {
+		if (KeyboardInputHandler.keys[KeyEvent.VK_LEFT] || KeyboardInputHandler.keys[KeyEvent.VK_Q]) {
 			// always the left first !
 			this.speedX = - Player.SPEED;
-		} else if (KeyboardInputHandler.keys[KeyEvent.VK_RIGHT]) {
+		} else if (KeyboardInputHandler.keys[KeyEvent.VK_RIGHT] || KeyboardInputHandler.keys[KeyEvent.VK_D]) {
 			// and now the right
 			this.speedX =Player.SPEED;
 		} else {
 			this.speedX = 0;
+		}
+		
+		if (this.respawnProtection && this.speedX == 0 && this.speedY == 0) {
+			this.respawnProtection = false;
 		}
 	}
 	
@@ -134,4 +143,7 @@ public class Player extends MovingEntity {
 		return false;
 	}
 
+	public void setProtection(){
+		this.respawnProtection = true;
+	}
 }
