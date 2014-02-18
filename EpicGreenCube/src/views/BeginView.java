@@ -57,7 +57,7 @@ public class BeginView extends View {
 	// Methods
 	public void start() {
 		// We start the background music
-		//AudioManager.backgroundMusic.playAsMusic(1.0f, 1.0f, true);
+		AudioManager.backgroundMusic.playAsMusic(1.0f, 1.0f, true);
 	}
 
 	public void run() {

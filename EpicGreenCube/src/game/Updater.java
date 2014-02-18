@@ -5,6 +5,8 @@ import gui.Main;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
+import sounds.AudioManager;
+
 import zipFileLevel.ZFL_Loader;
 
 /**
@@ -177,6 +179,6 @@ public class Updater {
 		// Speeds are set to 0
 		this.player.setProtection();
 		// We play the death sound
-		// TODO
+		AudioManager.deathSound.playAsSoundEffect(1.0f, 1.0f, false);
 	}
 }
