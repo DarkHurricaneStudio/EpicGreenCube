@@ -5,8 +5,6 @@ import gui.Main;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
-import sounds.GameAudioManager;
-
 import zipFileLevel.ZFL_Loader;
 
 /**
@@ -51,6 +49,7 @@ public class Updater {
 
 		// the zip where are stored the levels
 		String zip = System.getProperty("user.dir")+"\\res\\levels.zip";
+		
 
 		// the list of backgrounds
 		ArrayList<String> images = new ArrayList<String>();
@@ -178,6 +177,6 @@ public class Updater {
 		// Speeds are set to 0
 		this.player.setProtection();
 		// We play the death sound
-		GameAudioManager.request(GameAudioManager.DIE_SAMPLE, GameAudioManager.SFX_LIST);
+		// TODO
 	}
 }

@@ -143,6 +143,7 @@ public class Triangle extends MovingEntity {
 	}
 
 	public void updateAI(Updater u) {
+		/*
 		// Do the level have a waypoint graph ?
 		if (u.getActualLevel().getWaypoints().size() != 0) {
 			
@@ -206,9 +207,10 @@ public class Triangle extends MovingEntity {
 
 		}
 		else {
+			*/
 			// there is no waypoint, we use the most basic AI that was ever created...
 			this.waypoints.add(0,new Node(99,u.getPlayer().getPosX(),u.getPlayer().getPosY()));
-		}
+		//}
 
 	}
 

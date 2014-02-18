@@ -3,13 +3,11 @@ package gui;
 import handlers.KeyboardInputHandler;
 
 import java.awt.Dimension;
-import java.awt.event.KeyListener;
 import java.util.HashMap;
 
 import javax.sound.sampled.LineUnavailableException;
 import javax.swing.JPanel;
 
-import sounds.GameAudioManager;
 import views.BeginView;
 import views.EndView;
 import views.GameView;
@@ -36,8 +34,8 @@ public class MainPanel extends JPanel {
 
 	/**
 	 * Audio Manager
-	 */
-	private GameAudioManager gam;
+	 *
+	private GameAudioManager gam; */
 	
 	// Constructors
 	/**
@@ -49,6 +47,7 @@ public class MainPanel extends JPanel {
 
 		this.addKeyListener(new KeyboardInputHandler());
 		
+		/*
 		try {
 			this.gam = new GameAudioManager();
 		} catch (LineUnavailableException e) {
@@ -56,6 +55,7 @@ public class MainPanel extends JPanel {
 			e.printStackTrace();
 			System.exit(3);
 		}
+		*/
 
 	}
 
@@ -85,7 +85,9 @@ public class MainPanel extends JPanel {
 		this.currentView.setActive(true);
 	}
 	
+	/*
 	public GameAudioManager getGam(){
 		return this.gam;
 	}
+	*/
 }

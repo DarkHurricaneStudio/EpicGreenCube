@@ -76,7 +76,7 @@ public abstract class View {
 		this.start();
 		while (this.active) {
 			this.run();
-			this.panel.getGam().updateSounds();
+			// TODO Update sounds 
 		}
 		this.stop();
 	}

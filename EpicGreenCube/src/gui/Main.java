@@ -1,5 +1,7 @@
 package gui;
 
+import sounds.AudioManager;
+
 
 
 /**
@@ -17,6 +19,7 @@ public class Main {
 	
 	// Main Method
 	public static void main(String[] args) {
+		AudioManager.init();
 		MainFrame mf = new MainFrame();
 		mf.go();
 	}

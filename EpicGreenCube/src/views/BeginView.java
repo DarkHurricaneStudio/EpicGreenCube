@@ -9,7 +9,7 @@ import java.io.File;
 
 import javax.imageio.ImageIO;
 
-import sounds.GameAudioManager;
+import sounds.AudioManager;
 
 /**
  * View at the beginning of the game.
@@ -57,7 +57,7 @@ public class BeginView extends View {
 	// Methods
 	public void start() {
 		// We start the background music
-		GameAudioManager.request(GameAudioManager.BACK_SAMPLE, GameAudioManager.BACKGROUND_LIST);
+		//AudioManager.backgroundMusic.playAsMusic(1.0f, 1.0f, true);
 	}
 
 	public void run() {
