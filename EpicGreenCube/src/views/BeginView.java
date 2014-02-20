@@ -9,6 +9,8 @@ import java.io.File;
 
 import javax.imageio.ImageIO;
 
+import org.newdawn.slick.util.ResourceLoader;
+
 import sounds.AudioManager;
 
 /**
@@ -27,7 +29,7 @@ public class BeginView extends View {
 	/**
 	 * Path of the background
 	 */
-	private final static String path = "\\res\\menu.png";
+	private final static String path = "res/menu.png";
 
 	/**
 	 * Frame Per Seconds
@@ -46,7 +48,7 @@ public class BeginView extends View {
 	public BeginView(MainPanel panel) {
 		super(panel);
 		try {
-			this.background = ImageIO.read(new File(System.getProperty("user.dir")+path));
+			this.background = ImageIO.read(ResourceLoader.getResource(path));
 		} catch (Exception e) {
 			System.out.println("The file " + BeginView.path + " cannot be open !");
 			e.printStackTrace();

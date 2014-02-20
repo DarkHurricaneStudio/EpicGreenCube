@@ -6,11 +6,8 @@ import java.awt.image.AffineTransformOp;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
-import AI.Dijkstra;
-import AI.Node;
-
-
 import sprites.GameSprites;
+import AI.Node;
 
 /**
  * an ameliorated Entity that can follow the player
@@ -23,7 +20,7 @@ public class Triangle extends MovingEntity {
 	//fields
 	public final static double SPEED = 1.5;
 	private ArrayList<Node> waypoints;
-	private Node playerNode; // used for the AI
+	//private Node playerNode; // used for the AI
 	
 
 	
@@ -41,7 +38,7 @@ public class Triangle extends MovingEntity {
 		this.width = GameSprites.TRIANGLE_WIDTH;
 		this.height = GameSprites.TRIANGLE_HEIGHT;
 		this.waypoints = new ArrayList<Node>();
-		this.playerNode = null;
+		//this.playerNode = null;
 	}
 
 	@Override

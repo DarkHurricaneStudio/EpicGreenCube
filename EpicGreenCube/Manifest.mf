@@ -1,3 +1,4 @@
 Manifest-Version: 1.0 
 Main-Class: gui.Main 
-Class-Path: lib/jl1.0.1.jar lib/mp3spi1.9.5.jar lib/quentincsoundapi.jar lib/tritonus_share-0.3.6.jar
+Class-Path: lib/jars/jogg-0.0.7.jar lib/jars/jorbis-0.0.15.jar lib/jars/lwjgl.jar lib/jars/slick.jar
+

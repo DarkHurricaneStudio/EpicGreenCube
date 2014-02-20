@@ -15,6 +15,8 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.util.HashMap;
 
+import org.newdawn.slick.util.ResourceLoader;
+
 /**
  * The rendering of the game
  * 
@@ -25,7 +27,7 @@ public class GameRenderer {
 
 	// Fields
 	HashMap<String, BufferedImage> sprites;
-	private final static String fontPath = "\\res\\PrStart.ttf";
+	private final static String fontPath = "res/PrStart.ttf";
 	private static Font font;
 	
 	// Constructors
@@ -47,7 +49,7 @@ public class GameRenderer {
 		// we load the custom font
 		GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
 		try {
-			GameRenderer.font = Font.createFont(Font.TRUETYPE_FONT, new File(System.getProperty("user.dir")+GameRenderer.fontPath)).deriveFont(10f);
+			GameRenderer.font = Font.createFont(Font.TRUETYPE_FONT,ResourceLoader.getResourceAsStream(fontPath)).deriveFont(10f);
 			ge.registerFont(GameRenderer.font);
 		} catch (Exception e) {
 			e.printStackTrace();

@@ -14,6 +14,8 @@ import java.util.zip.ZipInputStream;
 
 import javax.imageio.ImageIO;
 
+import org.newdawn.slick.util.ResourceLoader;
+
 /**
  * this class is used to load files from a Zip archive, for The 4 File Level system 
  * @author Avignak
@@ -43,7 +45,8 @@ public class ZFL_Loader {
 		// we create an object to load the file into a byte stream
 		ByteArrayOutputStream out = new ByteArrayOutputStream();
 		// we load the Zip file
-		ZipFile zipFile = new ZipFile(path);
+		//ZipFile zipFile = new ZipFile(path);
+		ZipFile zipFile = new ZipFile(ResourceLoader.getResource(path).getFile());
 		
 		// we search the good file from the zip
 		ZipEntry zipFileEntry = zipFile.getEntry(filename);

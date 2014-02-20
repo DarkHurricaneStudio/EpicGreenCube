@@ -10,6 +10,8 @@ import java.io.InputStream;
 
 import javax.imageio.ImageIO;
 
+import org.newdawn.slick.util.ResourceLoader;
+
 public class EndView extends View {
 
 	// Fields
@@ -21,7 +23,7 @@ public class EndView extends View {
 	/**
 	 * Path of the background
 	 */
-	private final static String path = "\\res\\end.png";
+	private final static String path = "res/end.png";
 	
 	/**
 	 * Frame Per Seconds
@@ -40,8 +42,7 @@ public class EndView extends View {
 	public EndView(MainPanel panel) {
 		super(panel);
 		try {
-
-			this.background = ImageIO.read(new File(System.getProperty("user.dir")+path));
+			this.background = ImageIO.read(ResourceLoader.getResource(path));
 		} catch (Exception e) {
 			System.out.println("The file " + EndView.path + " cannot be open !");
 			e.printStackTrace();

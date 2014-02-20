@@ -9,6 +9,8 @@ import java.io.File;
 
 import javax.imageio.ImageIO;
 
+import org.newdawn.slick.util.ResourceLoader;
+
 /**
  * View when the game is in pause mode
  * 
@@ -25,7 +27,7 @@ public class PauseView extends View {
 	/**
 	 * Path of the background image
 	 */
-	private final static String path = "\\res\\pause.png";
+	private final static String path = "res/pause.png";
 
 	// Constructors
 	/**
@@ -34,7 +36,7 @@ public class PauseView extends View {
 	public PauseView(MainPanel panel) {
 		super(panel);
 		try {
-			this.background = ImageIO.read(new File(System.getProperty("user.dir")+PauseView.path));
+			this.background = ImageIO.read(ResourceLoader.getResource(path));
 		} catch (Exception e) {
 			System.out.println("The file " + PauseView.path + " cannot be open !");
 			e.printStackTrace();
